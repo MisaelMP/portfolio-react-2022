@@ -1,4 +1,5 @@
 import navbarItems from '../data/navbarItems.json';
+import ENavbar from '../styles/elements/navbar';
 
 interface NavItemProps {
   title: string;
@@ -10,7 +11,7 @@ export default function Navbar(
 
 ) {
   return (
-    <nav>
+    <ENavbar>
       <ul>
       {
         navbarItems && navbarItems?.map((item: NavItemProps, index: number) => 
@@ -22,6 +23,6 @@ export default function Navbar(
         )
       }
       </ul>
-    </nav>
+    </ENavbar>
   )
 }
