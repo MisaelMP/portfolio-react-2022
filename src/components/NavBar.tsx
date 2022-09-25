@@ -1,6 +1,6 @@
-import navbarItems from "../data/navbarItems.json";
-import NavBarStyled from "../styles/elements/navbar";
-import { useEffect, useState } from "react";
+import navbarItems from '../data/navbarItems.json';
+import NavBarStyled from '../styles/elements/navbar';
+import { useEffect, useState } from 'react';
 
 interface NavItemProps {
   title: string;
@@ -9,7 +9,7 @@ interface NavItemProps {
 }
 
 export default function Navbar() {
-  const mediaQuery: string = "(min-width: 768px)";
+  const mediaQuery: string = '(min-width: 768px)';
   const mediaQueryMatch = window.matchMedia(mediaQuery);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -19,10 +19,10 @@ export default function Navbar() {
 
       return setIsMobile(isMobile);
     };
-    mediaQueryMatch.addEventListener("change", handleClassByMediaQuery);
+    mediaQueryMatch.addEventListener('change', handleClassByMediaQuery);
 
     return () => {
-      mediaQueryMatch.removeEventListener("change", handleClassByMediaQuery);
+      mediaQueryMatch.removeEventListener('change', handleClassByMediaQuery);
     };
   }, [isMobile, mediaQueryMatch]);
   return (
@@ -31,7 +31,7 @@ export default function Navbar() {
         {navbarItems &&
           navbarItems?.map((item: NavItemProps, index: number) => (
             <li key={index}>
-              <a href="{item.href }}">{item.title}</a>
+              <a href='{item.href }}'>{item.title}</a>
             </li>
           ))}
       </ul>
