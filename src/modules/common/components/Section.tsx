@@ -7,12 +7,12 @@ interface SectionProps {
     children?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined
   }
 
-function Section(props: SectionProps) {
+function Section({ title, children, section }: SectionProps) {
 
   return (
-    <SectionStyled className={`o-section o-section--${props.section}`}>
-        <h2>{ props.title }</h2>
-        { props.children }
+    <SectionStyled className={`o-section o-section--${section}`}>
+        <h2>{ title }</h2>
+        { children }
     </SectionStyled>
   )
 }

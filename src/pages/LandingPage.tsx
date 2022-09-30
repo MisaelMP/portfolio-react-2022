@@ -1,5 +1,5 @@
-import NavBar from "../components/NavBar";
-import Section from "../components/Section";
+import NavBar from '../modules/common/components/NavBar';
+import Section from '../modules/common/components/Section';
 
 function LandingPage() {
   return (
