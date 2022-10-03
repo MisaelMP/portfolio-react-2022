@@ -1,15 +1,18 @@
-import NavBar from '../modules/common/components/NavBar';
-import Section from '../modules/common/components/Section';
+import About from 'src/modules/sections/components/About';
+import Blob from 'src/modules/p5/components/Blob';
+import NavBar from 'src/modules/common/components/NavBar';
+import Section from 'src/modules/common/components/Section';
 
-function LandingPage() {
+const LandingPage = () => {
   return (
     <div>
+      <Blob />
       <h1>Misael M.</h1>
       <header className="App-header">
         <NavBar />
       </header>
       <Section title="About" section="about">
-        <div>something here 1</div>
+        <About />
       </Section>
       <Section title="Skillset" section="skillset">
         <div>something here 2</div>

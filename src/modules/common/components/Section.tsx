@@ -1,5 +1,5 @@
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react'
-import SectionStyled from '../styles/objects/section'
+import SectionStyled from '../../../styles/objects/section';
 
 interface SectionProps {
     title: string;
@@ -7,7 +7,7 @@ interface SectionProps {
     children?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined
   }
 
-function Section({ title, children, section }: SectionProps) {
+const Section = ({ title, children, section }: SectionProps) => {
 
   return (
     <SectionStyled className={`o-section o-section--${section}`}>
@@ -17,4 +17,4 @@ function Section({ title, children, section }: SectionProps) {
   )
 }
 
-export default Section
+export default Section;

@@ -1,5 +1,5 @@
-import navbarItems from '../data/navbarItems.json';
-import NavBarStyled from '../styles/elements/navbar';
+import navbarItems from '../../../data/navbarItems.json';
+import NavBarStyled from '../../../styles/elements/navbar';
 import { useEffect, useState } from 'react';
 
 interface NavItemProps {
@@ -8,7 +8,7 @@ interface NavItemProps {
   children?: JSX.Element | JSX.Element[];
 }
 
-export default function Navbar() {
+const Navbar = () => {
   const mediaQuery: string = '(min-width: 768px)';
   const mediaQueryMatch = window.matchMedia(mediaQuery);
   const [isMobile, setIsMobile] = useState(false);
@@ -38,3 +38,5 @@ export default function Navbar() {
     </NavBarStyled>
   );
 }
+
+export default Navbar;
