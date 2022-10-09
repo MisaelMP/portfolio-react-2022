@@ -1,5 +1,5 @@
 import About from 'src/modules/sections/components/About';
-import Blob from 'src/modules/p5/components/Blob';
+import Blob from 'src/modules/p5/components/Blob.js';
 import NavBar from 'src/modules/common/components/NavBar';
 import Section from 'src/modules/common/components/Section';
 

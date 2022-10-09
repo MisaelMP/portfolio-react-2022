@@ -2,7 +2,7 @@ import styled from "styled-components/macro"
 import tw from 'twin.macro';
 
 const NavbarStyled = styled.nav.attrs({
-    className: "",
+    className: "w-full",
 })`
 
  & {
@@ -21,7 +21,7 @@ const NavbarStyled = styled.nav.attrs({
     @media only screen and (min-width: 768px) {
 
         ul {
-            ${tw`flex w-auto text-right`}
+            ${tw`flex w-auto`}
         }
 
      }
