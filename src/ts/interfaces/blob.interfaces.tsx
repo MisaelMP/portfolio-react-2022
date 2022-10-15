@@ -1,13 +1,3 @@
-interface JointParams {
-  pointA: object;
-  pointB: object;
-  len: Number;
-  strength: Number;
-  update: Function;
-  draw: Function;
-};
-
-
 interface PointParams {
   x: number;
   y: number;
@@ -28,9 +18,14 @@ interface PointParams {
   oldx?: number;
   oldy?: number;
   originalRadius?: number;
-};
+}
+interface JointParams {
+  pointA: PointParams | [];
+  pointB: PointParams | [];
+  len: Number;
+  strength: Number;
+  update: Function;
+  draw: Function;
+}
 
-export type {
-    JointParams,
-    PointParams,
-};
+export type { JointParams, PointParams };

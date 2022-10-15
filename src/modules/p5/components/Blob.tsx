@@ -1,18 +1,14 @@
-import { Joint } from './joint.js';
-import { Point } from './point.js';
-// import { JointParams, PointParams } from 'src/ts/interfaces/blob.interfaces';
-// import p5Types from 'p5';
-import React from 'react';
-import Sketch from 'react-p5';
+import { Joint } from './Joint';
+import { Point } from './Point';
+import { JointParams, PointParams } from 'src/ts/interfaces/blob.interfaces';
+import p5Types from 'p5';
+import Sketch  from 'react-p5';
 
-// interface BlobProps {}
+const Blob = () => {
+  let points: PointParams[];
+  let joints: JointParams[];
 
-const Blob = (props) => {
-  let points;
-  let joints;
-
-
-  const setup = (p5, canvasParentRef) => {
+  const setup = (p5: p5Types, canvasParentRef: Element) => {
     let canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
     canvas.position(0, 0);
 
@@ -41,7 +37,7 @@ const Blob = (props) => {
     }
   };
 
-  const draw = (p5) => {
+  const draw = (p5: p5Types) => {
     const hw = p5.width / 2;
     const hh = p5.height / 2;
     p5.clear();
@@ -49,14 +45,14 @@ const Blob = (props) => {
     p5.fill(0);
     p5.translate(hw, hh);
      
-    for (let i = 0, l = joints.length; i < l; i++) {
+    for (let i = 0, l: number = joints.length; i < l; i++) {
       joints[i].update(1);
     }
 
     const mx = p5.mouseX - hw;
     const my = p5.mouseY - hh;
 
-    for (let i = 0, l = points.length; i < l; i++) {
+    for (let i = 0, l: number = points.length; i < l; i++) {
       const pointA = points[i];
       const gravity = p5.createVector(pointA.x, pointA.y).normalize().mult(0.1);
       pointA.addForce(-gravity.x, -gravity.y);
@@ -73,7 +69,7 @@ const Blob = (props) => {
     }
 
     p5.beginShape();
-    for (let i = 0, l = points.length; i < l; i++) {
+    for (let i = 0, l: number = points.length; i < l; i++) {
       p5.curveVertex(points[i].x, points[i].y);
     }
     p5.endShape();

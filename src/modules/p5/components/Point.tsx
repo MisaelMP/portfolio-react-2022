@@ -1,21 +1,20 @@
-// import p5Types from 'p5';
-// import { PointParams } from 'src/ts/interfaces/blob.interfaces';
+import { PointParams } from 'src/ts/interfaces/blob.interfaces';
 
-// function addForce(this: any, p5: p5Types, x: number, y: number, instant: boolean = false) {
+// function addForce(this: any, x: number, y: number, instant: boolean = false) {
 //   this.nextx += x;
 //   this.nexty += y;
 //   if (instant) {
-//     this.delayedx = p5.lerp(this.delayedx, this.nextx, 0.25);
-//     this.delayedy = p5.lerp(this.delayedy, this.nexty, 0.25);
+//     this.delayedx = this.p5.lerp(this.delayedx, this.nextx, 0.25);
+//     this.delayedy = this.p5.lerp(this.delayedy, this.nexty, 0.25);
 //   }
 // };
 
-// function attract(this: any, p5: p5Types, otherX: number, otherY: number, strength: number = 1) {
+// function attract(this: any, otherX: number, otherY: number, strength: number = 1) {
 //   const diffx = otherX - this.x;
 //   const diffy = otherY - this.y;
 //   const mag = diffx * diffx + diffy * diffy;
 //   if (mag > 0.01) {
-//     const magSqrt = 1 / p5.sqrt(mag);
+//     const magSqrt = 1 / this.p5.prototype.sqrt(mag);
 //     this.addForce(
 //       diffx * magSqrt * strength, // force x
 //       diffy * magSqrt * strength // force y
@@ -23,14 +22,14 @@
 //   }
 // };
 
-// function repel(this: any, p5: p5Types, otherX: number, otherY: number, radius: number = 1, strength: number = 1) {
+// function repel(this: any, otherX: number, otherY: number, radius: number = 1, strength: number = 1) {
 //   const diffx = this.x - otherX;
 //   const diffy = this.y - otherY;
 //   const mag = diffx * diffx + diffy * diffy;
 //   const combinedRadius = radius + this.radius;
 //   const minDist = combinedRadius * combinedRadius;
 //   if (mag > 0 && mag < minDist) {
-//     const magSqrt = 1 / p5.sqrt(mag);
+//     const magSqrt = 1 / this.p5.prototype.sqrt(mag);
 //     const forceX = diffx * magSqrt * strength;
 //     const forceY = diffy * magSqrt * strength;
 //     this.addForce(forceX, forceY);
@@ -44,8 +43,8 @@
 //   const diffx = otherX - this.x;
 //   const diffy = otherY - this.y;
 // //   console.log(p5);
-//   const diffMag = p5.sqrt(diffx * diffx + diffy * diffy);
-  
+//   const diffMag = this.p5.prototype.sqrt(diffx * diffx + diffy * diffy);
+
 //   const combinedRadius = radius + this.radius;
 //   if (diffMag < combinedRadius) {
 //     const forceMag = diffMag - combinedRadius;
@@ -80,15 +79,15 @@
 //   }
 // };
 
-// function update(this: any, p5: p5Types, dt = 1){
+// function update(this: any, dt = 1){
 //   let vx = this.x - this.oldx;
 //   let vy = this.y - this.oldy;
 //   this.oldx = this.x - vx * this.damping * (1 - dt);
 //   this.oldy = this.y - vy * this.damping * (1 - dt);
 //   this.x = this.nextx + vx * this.damping * dt;
 //   this.y = this.nexty + vy * this.damping * dt;
-//   this.delayedx = p5.lerp(this.delayedx, this.x, 0.1);
-//   this.delayedy = p5.lerp(this.delayedy, this.y, 0.1);
+//   this.delayedx = this.p5.prototype.lerp(this.delayedx, this.x, 0.1);
+//   this.delayedy = this.p5.prototype.lerp(this.delayedy, this.y, 0.1);
 //   this.nextx = this.x;
 //   this.nexty = this.y;
 // };
@@ -96,7 +95,6 @@
 // function draw(this: any, ctx: p5Types) {
 //   ctx.point(this.delayedx, this.delayedy);
 // };
-
 
 // export const point = ({x, y, radius, damping = 0.9, friction = 0.1, parent, color =  0}: {x?: any; y?: any; radius?: number; damping: number; friction?: number; parent?: HTMLElement; color?: number;}, delayedx = x, delayedy = y, oldx = x, oldy = y, originalRadius = radius,  ): PointParams => {
 //     return {
@@ -121,8 +119,40 @@
 //       originalRadius,
 //     };
 // };
-export class Point {
-  constructor({ x, y, radius, damping, friction, parent, color = 0 }) {
+export class Point implements PointParams {
+  x: number;
+  y: number;
+  damping: number;
+  friction: number;
+  radius: number;
+  parent?: HTMLElement;
+  color: number;
+  delayedx: number;
+  delayedy: number;
+  oldx: number;
+  oldy: number;
+  originalRadius?: number;
+  nextx: number;
+  nexty: number;
+  maxVelocity: number;
+
+  constructor({
+    x,
+    y,
+    radius,
+    damping,
+    friction,
+    parent,
+    color = 0,
+  }: {
+    x: number;
+    y: number;
+    radius?: number;
+    damping?: number;
+    friction?: number;
+    parent?: HTMLElement;
+    color?: number;
+  }) {
     this.x = x;
     this.y = y;
     this.oldx = x;
@@ -140,7 +170,7 @@ export class Point {
     this.color = color;
   }
 
-  addForce(x, y, instant = false) {
+  addForce(x: number, y: number, instant = false) {
     this.nextx += x;
     this.nexty += y;
     if (instant) {
@@ -149,7 +179,7 @@ export class Point {
     }
   }
 
-  attract(otherX, otherY, strength = 1) {
+  attract(otherX: number, otherY: number, strength = 1) {
     const diffx = otherX - this.x;
     const diffy = otherY - this.y;
     const mag = diffx * diffx + diffy * diffy;
@@ -162,7 +192,7 @@ export class Point {
     }
   }
 
-  repel(otherX, otherY, radius = 1, strength = 1) {
+  repel(otherX: number, otherY: number, radius = 1, strength = 1) {
     const diffx = this.x - otherX;
     const diffy = this.y - otherY;
     const mag = diffx * diffx + diffy * diffy;
@@ -179,7 +209,7 @@ export class Point {
     return null;
   }
 
-  collide(otherX, otherY, radius) {
+  collide(otherX: number, otherY: number, radius: number) {
     const diffx = otherX - this.x;
     const diffy = otherY - this.y;
     const diffMag = window.p5.prototype.sqrt(diffx * diffx + diffy * diffy);
@@ -191,7 +221,7 @@ export class Point {
     }
   }
 
-  constrain(left, top, right, bottom) {
+  constrain(left: number, top: number, right: number, bottom: number) {
     const { x, y, oldx, oldy, friction, radius } = this;
     const vx = (x - oldx) * friction;
     const vy = (y - oldy) * friction;
@@ -230,7 +260,7 @@ export class Point {
     this.nexty = this.y;
   }
 
-  draw(ctx) {
+  draw(ctx: { point: (arg0: any, arg1: any) => void }) {
     ctx.point(this.delayedx, this.delayedy);
   }
 }
