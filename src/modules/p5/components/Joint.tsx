@@ -45,12 +45,7 @@ export class Joint implements JointParams {
   strength: Number;
   originalLen: Number;
 
-  constructor(
-    pointA: PointParams,
-    pointB: PointParams,
-    len: Number,
-    strength: Number
-  ) {
+  constructor(pointA: PointParams, pointB: PointParams, len: Number, strength: Number) {
     this.pointA = pointA;
     this.pointB = pointB;
     this.originalLen = len;
