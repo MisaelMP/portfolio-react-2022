@@ -41,11 +41,11 @@ import p5Types from 'p5';
 export class Joint implements JointParams {
   pointA: PointParams;
   pointB: PointParams;
-  len: Number;
-  strength: Number;
-  originalLen: Number;
+  len: number;
+  strength: number;
+  originalLen: number;
 
-  constructor(pointA: PointParams, pointB: PointParams, len: Number, strength: Number) {
+  constructor(pointA: PointParams, pointB: PointParams, len: number, strength: number) {
     this.pointA = pointA;
     this.pointB = pointB;
     this.originalLen = len;

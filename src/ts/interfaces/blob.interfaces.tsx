@@ -22,8 +22,8 @@ interface PointParams {
 interface JointParams {
   pointA: PointParams | [];
   pointB: PointParams | [];
-  len: Number;
-  strength: Number;
+  len: number;
+  strength: number;
   update: Function;
   draw: Function;
 }
