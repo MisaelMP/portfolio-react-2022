@@ -1,5 +1,6 @@
 import About from 'src/modules/sections/components/About';
 import Blob from 'src/modules/p5/components/Blob';
+import Contact from 'src/modules/sections/components/Contact';
 import NavBar from 'src/modules/common/components/NavBar';
 import Section from 'src/modules/common/components/Section';
 
@@ -7,7 +8,7 @@ const LandingPage = () => {
   return (
     <div>
       <Blob />
-      <h1>Misael M.</h1>
+      <h1 className="ont-bold font-montserrat text-center text-8xl">Misael M.</h1>
       <header className="App-header">
         <NavBar />
       </header>
@@ -21,7 +22,7 @@ const LandingPage = () => {
         <div>something here 3</div>
       </Section>
       <Section title="Contact" section="contact">
-        <div>something here 4</div>
+        <Contact />
       </Section>
     </div>
   );

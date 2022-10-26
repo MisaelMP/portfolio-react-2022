@@ -15,7 +15,7 @@ const NavbarStyled = styled.nav.attrs({
     }
 
     a {
-        ${tw`capitalize text-xs text-gray-500`}
+        ${tw`capitalize text-base text-gray-500`}
     }
 
     @media only screen and (min-width: 768px) {

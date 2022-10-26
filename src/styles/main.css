@@ -1,2 +1,3 @@
+@import "settings/all.css";
 @import "generic/all.css";
-@import "./vendors/all.css";
+@import "vendors/all.css";

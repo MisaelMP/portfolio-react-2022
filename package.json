@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "-": "^0.0.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -47,7 +46,6 @@
     "babel-plugin-macros": "^3.1.0",
     "postcss": "^8.4.16",
     "postcss-import": "^15.0.0",
-    "style-components": "^0.1.0",
     "styled-components": "^5.3.5",
     "tailwindcss": "^3.1.8",
     "twin.macro": "^2.8.2"
