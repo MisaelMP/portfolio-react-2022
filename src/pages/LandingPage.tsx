@@ -1,7 +1,8 @@
 import About from 'src/modules/sections/components/About';
 import Blob from 'src/modules/p5/components/Blob';
 import Contact from 'src/modules/sections/components/Contact';
-import NavBar from 'src/modules/common/components/NavBar';
+import Footer from 'src/modules/layout/components/Footer';
+import NavBar from 'src/modules/layout/components/NavBar';
 import Section from 'src/modules/common/components/Section';
 
 const LandingPage = () => {
@@ -23,6 +24,9 @@ const LandingPage = () => {
       </Section>
       <Section title="Contact" section="contact">
         <Contact />
+      </Section>
+      <Section section="footer">
+        <Footer />
       </Section>
     </div>
   );

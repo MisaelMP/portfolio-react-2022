@@ -2,7 +2,7 @@ import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 
 import SectionStyled from '../../../styles/objects/section';
 
 interface SectionProps {
-    title: string;
+    title?: string;
     section: string
     children?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined
   }
