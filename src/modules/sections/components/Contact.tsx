@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <Fragment>
       <h2>Contact me</h2>
-      <p>
+      <div>
         You can always find me through any of these emails or by telepathic communication, feel free to chose either:{' '}
         <br />
         <div className='contact'>
@@ -27,7 +27,7 @@ const Contact = () => {
             <span className='is-hidden'>contact@misaelm.com</span>
           </a>
         </div>
-      </p>
+      </div>
     </Fragment>
   );
 };
