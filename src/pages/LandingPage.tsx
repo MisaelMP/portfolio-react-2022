@@ -1,10 +1,10 @@
-import About from 'src/modules/sections/components/About';
-import Blob from 'src/modules/p5/components/Blob';
-import Contact from 'src/modules/sections/components/Contact';
-import Footer from 'src/modules/layout/components/Footer';
-import NavBar from 'src/modules/layout/components/NavBar';
-import CardSection from 'src/modules/common/components/CardSection';
-import SwipableCardsSections from 'src/modules/common/components/SwipableCardsSections';
+import About from '../modules/sections/components/About';
+import Blob from '../modules/p5/components/Blob';
+import Contact from '../modules/sections/components/Contact';
+import Footer from '../modules/layout/components/Footer';
+import NavBar from '../modules/layout/components/NavBar';
+import CardSection from '../modules/common/components/CardSection';
+import SwipableCardsSections from '../modules/common/components/SwipableCardsSections';
 
 const LandingPage = () => {
   return (
