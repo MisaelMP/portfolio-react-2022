@@ -4,14 +4,15 @@ import Contact from '../modules/sections/components/Contact';
 import Footer from '../modules/layout/components/Footer';
 import NavBar from '../modules/layout/components/NavBar';
 import CardSection from '../modules/common/components/CardSection';
+import styles from '../styles/layout.module.css';
 import SwipableCardsSections from '../modules/common/components/SwipableCardsSections';
 
 const LandingPage = () => {
   return (
     <div>
       {/* <Blob /> */}
-      <h1 className="ont-bold font-montserrat text-center text-8xl">Misael M.</h1>
-      <header className="App-header">
+      <h1 className='font-bold font-montserrat text-center text-8xl'>Misael M.</h1>
+      <header className='App-header'>
         <NavBar />
       </header>
       {/* <CardSection title="About" section="about">
@@ -29,9 +30,11 @@ const LandingPage = () => {
       <CardSection section="footer">
         <Footer />
       </CardSection> */}
-    <SwipableCardsSections />
+      <div className={styles.container}>
+        <SwipableCardsSections />
+      </div>
     </div>
   );
-}
+};
 
 export default LandingPage;

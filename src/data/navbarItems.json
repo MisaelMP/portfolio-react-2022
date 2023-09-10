@@ -1,18 +1,18 @@
 [
 	{
 		"title": "about",
-		"href": "#about"
+		"href": "about"
 	},
 	{
 		"title": "skillset",
-		"href": "#skillset"
+		"href": "skillset"
 	},
 	{
 		"title": "projects",
-		"href": "#projects"
+		"href": "projects"
 	},
 	{
 		"title": "contact",
-		"href": "#contact"
+		"href": "contact"
 	}
 ]

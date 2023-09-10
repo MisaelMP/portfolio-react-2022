@@ -8,7 +8,7 @@ import styles from '../../../styles/layout.module.css';
 interface CardData {
   title: string;
   section: string;
-  content: React.ReactNode;
+  children: React.ReactNode;
   style?: React.CSSProperties;
 }
 
@@ -17,7 +17,7 @@ const cards: CardData[] = [
   {
     title: 'text',
     section: 'section',
-    content: (
+    children: (
       <div>
         <h2>Card 1</h2>
         <p>This is the first card.</p>
@@ -27,7 +27,7 @@ const cards: CardData[] = [
   {
     title: '2',
     section: 'section',
-    content: (
+    children: (
       <div>
         <h2>Card 2</h2>
         <p>This is the second card.</p>
@@ -37,7 +37,7 @@ const cards: CardData[] = [
   {
     title: '3',
     section: 'section',
-    content: (
+    children: (
       <div>
         <h2>Card 3</h2>
         <p>This is the third card.</p>
@@ -47,7 +47,7 @@ const cards: CardData[] = [
   {
     title: '4',
     section: 'section2',
-    content: (
+    children: (
       <div>
         <h2>Card 4</h2>
         <p>This is the fourth card.</p>
