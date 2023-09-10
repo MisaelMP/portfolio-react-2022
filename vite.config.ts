@@ -14,4 +14,8 @@ export default defineConfig({
     viteTsconfigPaths(),
     svgrPlugin(),
   ],
+  server: {
+    open: true,
+    port: 4000,
+  },
 });

@@ -9,34 +9,36 @@ interface NavItemProps {
 }
 
 const Navbar = () => {
-  const mediaQuery: string = '(min-width: 768px)';
-  const mediaQueryMatch = window.matchMedia(mediaQuery);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const mediaQuery: string = '(min-width: 768px)';
+    const mediaQueryMatch = window.matchMedia(mediaQuery);
+
     const handleClassByMediaQuery = (event: { matches: any }) => {
       const isMobile = event.matches;
-
-      return setIsMobile(isMobile);
+      setIsMobile(isMobile);
     };
+
     mediaQueryMatch.addEventListener('change', handleClassByMediaQuery);
 
     return () => {
       mediaQueryMatch.removeEventListener('change', handleClassByMediaQuery);
     };
-  }, [isMobile, mediaQueryMatch]);
+  }, []);
+
   return (
     <NavBarStyled className={`${isMobile ? 'w-3/4' : 'w-full'}`}>
       <ul>
         {navbarItems &&
-          navbarItems?.map((item: NavItemProps, index: number) => (
+          navbarItems.map((item: NavItemProps, index: number) => (
             <li key={index}>
-              <a href='{item.href }}'>{item.title}</a>
+              <a href={item.href}>{item.title}</a>
             </li>
           ))}
       </ul>
     </NavBarStyled>
   );
-}
+};
 
 export default Navbar;
