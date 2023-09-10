@@ -2,6 +2,10 @@ import { useSprings, animated, to as interpolate } from '@react-spring/web';
 import { useState } from 'react';
 import { useDrag } from '@use-gesture/react';
 import CardSection from './CardSection';
+import About from '../../sections/components/About';
+import Contact from '../../sections/components/About';
+import Projects from '../../sections/components/Projects';
+import Skillset from '../../sections/components/Skillset';
 import styles from '../../../styles/layout.module.css';
 
 // Define a type for our card data
@@ -12,47 +16,31 @@ interface CardData {
   style?: React.CSSProperties;
 }
 
-// Define some sample card data to display in the stack
+// Define card data to display in the stack
 const cards: CardData[] = [
   {
-    title: 'text',
-    section: 'section',
+    title: 'About',
+    section: 'about',
+    children: <About />,
+  },
+  {
+    title: 'Skillset',
+    section: 'skillset',
     children: (
-      <div>
-        <h2>Card 1</h2>
-        <p>This is the first card.</p>
-      </div>
+      <Skillset />
     ),
   },
   {
-    title: '2',
-    section: 'section',
+    title: 'Projects',
+    section: 'projects',
     children: (
-      <div>
-        <h2>Card 2</h2>
-        <p>This is the second card.</p>
-      </div>
+      <Projects />
     ),
   },
   {
-    title: '3',
-    section: 'section',
-    children: (
-      <div>
-        <h2>Card 3</h2>
-        <p>This is the third card.</p>
-      </div>
-    ),
-  },
-  {
-    title: '4',
-    section: 'section2',
-    children: (
-      <div>
-        <h2>Card 4</h2>
-        <p>This is the fourth card.</p>
-      </div>
-    ),
+    title: 'Contact',
+    section: 'contact',
+    children: <Contact />,
   },
 ];
 

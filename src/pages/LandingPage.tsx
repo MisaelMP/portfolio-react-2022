@@ -1,8 +1,7 @@
 import About from '../modules/sections/components/About';
 import Blob from '../modules/p5/components/Blob';
-import Contact from '../modules/sections/components/Contact';
-import Footer from '../modules/layout/components/Footer';
 import NavBar from '../modules/layout/components/NavBar';
+import Footer from '../modules/layout/components/Footer';
 import CardSection from '../modules/common/components/CardSection';
 import styles from '../styles/layout.module.css';
 import SwipableCardsSections from '../modules/common/components/SwipableCardsSections';
@@ -27,12 +26,13 @@ const LandingPage = () => {
       <CardSection title="Contact" section="contact">
         <Contact />
       </CardSection>
-      <CardSection section="footer">
-        <Footer />
-      </CardSection> */}
+   */}
       <div className={styles.container}>
         <SwipableCardsSections />
       </div>
+      <CardSection section='footer'>
+        <Footer />
+      </CardSection>
     </div>
   );
 };

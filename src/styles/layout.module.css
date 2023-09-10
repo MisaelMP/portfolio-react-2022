@@ -24,8 +24,8 @@
   background-repeat: no-repeat;
   background-position: center center;
   width: 45vh;
-  max-width: 150px;
-  height: 85vh;
+  max-width: 300px;
+  height: 100%;
   max-height: 285px;
   will-change: transform;
   border-radius: 10px;
