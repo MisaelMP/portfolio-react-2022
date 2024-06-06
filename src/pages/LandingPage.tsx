@@ -1,5 +1,5 @@
 import About from '../modules/sections/components/About';
-import Blob from '../modules/p5/components/Blob';
+import Blob from '../modules/p5/components/Blob1';
 import NavBar from '../modules/layout/components/NavBar';
 import Footer from '../modules/layout/components/Footer';
 import CardSection from '../modules/common/components/CardSection';
