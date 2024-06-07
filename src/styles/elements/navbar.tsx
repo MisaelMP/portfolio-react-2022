@@ -1,9 +1,11 @@
-import styled from "styled-components/macro"
+import styled from 'styled-components/macro';
 import tw from 'twin.macro';
+interface NavBarStyledProps {
+	className?: string;
+	children?: React.ReactNode;
+}
 
-const NavbarStyled = styled.nav.attrs({
-    className: "w-full",
-})`
+const NavbarStyled = styled.nav<NavBarStyledProps>`
 
  & {
     ul {

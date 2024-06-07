@@ -1,7 +1,7 @@
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react'
 import SectionStyled from '../../../styles/objects/section';
 
-interface CardSectionProps {
+interface SectionProps {
   title?: string;
   section: string;
   children?:
@@ -16,7 +16,7 @@ interface CardSectionProps {
   style?: React.CSSProperties;
 }
 
-const CardSection = ({ title, children, section }: CardSectionProps) => {
+const Section = ({ title, children, section }: SectionProps) => {
 
   return (
     <SectionStyled className={`o-section o-section--${section}`}>
@@ -26,4 +26,4 @@ const CardSection = ({ title, children, section }: CardSectionProps) => {
   )
 }
 
-export default CardSection;
+export default Section;

@@ -1,14 +1,27 @@
 import GlobalStyle from './styles/generic/GlobalStyles';
-import LandingPage from './pages/LandingPage';
-import Blob from './modules/p5/components/Blob1';
+import NavBar from './modules/layout/components/NavBar';
+import Footer from './modules/layout/components/Footer';
+import Section from './modules/common/components/Section';
 
-function App() {
+import { Fragment, ReactNode } from 'react';
+
+function App({ children }: { children: ReactNode }): JSX.Element {
 	return (
-		<div className='App'>
-			<Blob />
+		<Fragment>
 			<GlobalStyle />
-			<LandingPage />
-		</div>
+			<a href='/'>
+				<h1 className='font-bold font-montserrat text-center text-8xl'>Misael M.</h1>
+			</a>
+			<header className='App-header'>
+				<NavBar />
+			</header>
+			{children}
+			<footer>
+				<Section title='Footer' section='footer'>
+					<Footer />
+				</Section>
+			</footer>
+		</Fragment>
 	);
 }
 

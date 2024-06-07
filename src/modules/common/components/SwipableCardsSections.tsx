@@ -1,7 +1,7 @@
 import { useSprings, animated, to as interpolate } from '@react-spring/web';
 import { useState } from 'react';
 import { useDrag } from '@use-gesture/react';
-import CardSection from './CardSection';
+import Section from './Section';
 import About from '../../sections/components/About';
 import Contact from '../../sections/components/Contact';
 import Projects from '../../sections/components/Projects';
@@ -97,7 +97,7 @@ const SwipableCardsSections = () => {
 							transform: interpolate([rot, scale], trans),
 						}}
 					>
-						<CardSection {...cards[i]} />
+						<Section {...cards[i]} />
 					</animated.div>
 				</animated.div>
 			))}
