@@ -3,8 +3,8 @@
 # Define branches to ignore
 IGNORED_BRANCHES=("develop" "feature/*")
 
-# Get the current branch name
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
+# Get the current branch name from Vercel's environment variable
+BRANCH=$VERCEL_GIT_COMMIT_REF
 
 echo "Current branch: $BRANCH"
 
