@@ -1,6 +1,6 @@
 {
 	"github": {
-		"autoJobCancelation": false
+		"autoJobCancelation": true
 	},
 	"ignoreCommand": "bash ./vercel-ignore.sh"
 }
