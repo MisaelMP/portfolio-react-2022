@@ -5,7 +5,7 @@
     margin-bottom: 3rem;
     padding-top: 1rem;
     width: 100%;
-    
+
     @screen md {
       display: flex;
       width: auto;
