@@ -1,0 +1,28 @@
+/* navbar.module.css */
+.navbar {
+  & ul {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-top: 1rem;
+    width: 100%;
+    
+    @screen md {
+      display: flex;
+      width: auto;
+    }
+
+
+    & li {
+      display: inline-block;
+      margin: 0;
+      padding: 1rem 0;
+      width: 100%;
+
+      & a {
+        text-transform: capitalize;
+        font-size: 1rem;
+        color: #717171;
+      }
+    }
+  }
+}

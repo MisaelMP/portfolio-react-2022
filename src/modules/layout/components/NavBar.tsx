@@ -1,5 +1,5 @@
 import navbarItems from '../../../data/navbarItems.json';
-import NavBarStyled from '../../../styles/elements/navbar';
+import styles from '../../../styles/elements/navbar.module.css';
 import { useEffect, useState } from 'react';
 
 interface NavItemProps {
@@ -16,8 +16,8 @@ const Navbar = () => {
 		const mediaQueryMatch = window.matchMedia(mediaQuery);
 
 		const handleClassByMediaQuery = (event: { matches: any }) => {
-			const isMobile = event.matches;
-			setIsMobile(isMobile);
+			const isDesktop = event.matches;
+			setIsMobile(!isDesktop);
 		};
 
 		mediaQueryMatch.addEventListener('change', handleClassByMediaQuery);
@@ -28,7 +28,7 @@ const Navbar = () => {
 	}, []);
 
 	return (
-		<NavBarStyled className={`${isMobile ? 'w-3/4' : 'w-full'}`}>
+		<nav className={`${styles.navbar} ${isMobile ? 'w-3/4' : 'w-full'}`}>
 			<ul>
 				{navbarItems &&
 					navbarItems.map((item: NavItemProps, index: number) => (
@@ -37,7 +37,7 @@ const Navbar = () => {
 						</li>
 					))}
 			</ul>
-		</NavBarStyled>
+		</nav>
 	);
 };
 

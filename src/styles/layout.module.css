@@ -7,9 +7,10 @@
   height: 100vh;
   justify-content: center;
 }
+
 .deck {
-  position: absolute;
   @apply w-full h-auto;
+  position: absolute;
   will-change: transform;
   display: flex;
   align-items: center;
