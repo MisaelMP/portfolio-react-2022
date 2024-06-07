@@ -1,18 +1,36 @@
 #!/bin/bash
 
 # Define branches to ignore
-IGNORED_BRANCHES=("development" "feature/*")
+IGNORED_BRANCHES=("develop" "feature/*")
 
-# Get the current branch
+# Get the current branch name
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-# Check if the current branch should be ignored
-for IGNORED_BRANCH in "${IGNORED_BRANCHES[@]}"; do
-  if [[ "$BRANCH" == $IGNORED_BRANCH ]]; then
-    echo "🛑 - Build cancelled"
-    exit 0;
-  fi
-done
+echo "Current branch: $BRANCH"
 
-echo "✅ - Build can proceed"
-exit 1;
+# Function to check if the branch matches any pattern in the IGNORED_BRANCHES array
+should_ignore() {
+  for IGNORED_BRANCH in "${IGNORED_BRANCHES[@]}"; do
+    if [[ "$IGNORED_BRANCH" == *"/*" ]]; then
+      # If the pattern is a wildcard, use a glob pattern match
+      if [[ "$BRANCH" == ${IGNORED_BRANCH/\*/}* ]]; then
+        return 0
+      fi
+    else
+      # Otherwise, use exact match
+      if [[ "$BRANCH" == "$IGNORED_BRANCH" ]]; then
+        return 0
+      fi
+    fi
+  done
+  return 1
+}
+
+# Check if the current branch should be ignored
+if should_ignore; then
+  echo "🛑 - Build cancelled"
+  exit 0
+else
+  echo "✅ - Build can proceed"
+  exit 1
+fi
