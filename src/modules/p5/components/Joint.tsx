@@ -1,4 +1,5 @@
-import { JointParams, PointParams } from 'src/ts/interfaces/blob.interfaces';
+import { JointParams, PointParams } from '../../../ts/interfaces/blob.interfaces';
+
 import p5Types from 'p5';
 
 // let pointA: PointParams[];
