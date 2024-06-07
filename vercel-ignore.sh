@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define branches to ignore
-IGNORED_BRANCHES=("develop" "feature/*")
+IGNORED_BRANCHES=("development" "feature/*")
 
 # Get the current branch
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
