@@ -4,7 +4,7 @@ const LandingPage = () => {
 	return (  
 		<>
 			<main>
-				<Blob />
+				{/* <Blob /> */}
 			</main>
 		</>
 	);

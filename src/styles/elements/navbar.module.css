@@ -1,5 +1,7 @@
 /* navbar.module.css */
 .navbar {
+  @apply relative;
+
   & ul {
     text-align: center;
     margin-bottom: 3rem;
@@ -26,3 +28,46 @@
     }
   }
 }
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.hamburgerIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 767px) {
+  .menu {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Adjust color as needed */
+    transform: translateX(-100%);
+  }
+
+  .menuClosed {
+    transform: translateX(-100%);
+    display: none;
+  }
+
+  .menuOpen {
+    transform: translateX(0);
+    display: block;
+  }
+}
+
