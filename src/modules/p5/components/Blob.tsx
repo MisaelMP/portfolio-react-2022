@@ -1,9 +1,7 @@
-// SketchComponent.jsx
-
 import React, { useRef, useEffect } from 'react';
 import p5 from 'p5';
 
-const SketchComponent = () => {
+const Blob = () => {
 	const sketchRef = useRef(null);
 
 	useEffect(() => {
@@ -311,4 +309,4 @@ const SketchComponent = () => {
 	return <div ref={sketchRef}></div>;
 };
 
-export default SketchComponent;
+export default Blob;

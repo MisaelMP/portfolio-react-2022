@@ -1,4 +1,4 @@
-import Blob from '../modules/p5/components/Blob1';
+import Blob from '../modules/p5/components/Blob';
 
 const LandingPage = () => {
 	return (  
