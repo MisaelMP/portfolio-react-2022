@@ -3,8 +3,8 @@
 # Define branches to ignore
 IGNORED_BRANCHES=("develop" "feature/*")
 
-# Get the current branch name from Vercel's environment variable
-BRANCH=$VERCEL_GIT_COMMIT_REF
+# Get the current branch name from GITHUB_REF environment variable
+BRANCH=$(echo $GITHUB_REF | sed 's|refs/heads/||')
 
 echo "Current branch: $BRANCH"
 
