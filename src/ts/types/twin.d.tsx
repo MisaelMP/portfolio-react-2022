@@ -1,6 +1,7 @@
 // types/twin.d.ts
 import 'twin.macro';
 import styledImport, { CSSProp, css as cssImport } from 'styled-components';
+import type { DOMAttributes } from 'react';
 
 declare module 'twin.macro' {
   // The styled and css imports
@@ -15,7 +16,7 @@ declare module 'react' {
     tw?: string;
   }
   // The inline svg css prop
-  interface SVGProps<T> extends SVGProps<SVGSVGElement> {
+  interface NewSVGProps<T> extends SVGProps<SVGSVGElement> {
     css?: CSSProp;
     tw?: string;
   }
@@ -24,7 +25,7 @@ declare module 'react' {
 // The 'as' prop on styled components
 declare global {
   namespace JSX {
-    interface IntrinsicAttributes<T> extends DOMAttributes<T> {
+    interface IntrinsicAttributes extends DOMAttributes<any> {
       as?: string | Element;
     }
   }
