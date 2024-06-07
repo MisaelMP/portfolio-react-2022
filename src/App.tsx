@@ -17,7 +17,7 @@ function App({ children }: { children: ReactNode }): JSX.Element {
 			</header>
 			{children}
 			<footer>
-				<Section title='Footer' section='footer'>
+				<Section section='footer'>
 					<Footer />
 				</Section>
 			</footer>

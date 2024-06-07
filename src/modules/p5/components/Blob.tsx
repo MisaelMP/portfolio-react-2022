@@ -55,7 +55,7 @@ const Blob = () => {
         points = [];
         joints = [];
 
-        const pointCount = 80;
+        const pointCount = 50;
         const radius = Math.min(p.width, p.height) * 0.3;
         for (let i = 0; i < pointCount; i++) {
           const angle = (i / pointCount) * p.TWO_PI;
@@ -73,7 +73,7 @@ const Blob = () => {
             radius: 10,
             originalRadius: 10,
             damping: 0.99,
-            friction: 0.1,
+            friction: 0.2,
             parent: null,
             maxVelocity: 50,
             color: 0,
@@ -275,7 +275,7 @@ const Blob = () => {
             .normalize()
             .mult(0.1);
           pointA.addForce(-gravity.x, -gravity.y);
-          pointA.collide(mx, my, 80);
+          pointA.collide(mx, my, 60);
           for (let j = i + 1; j < l; j++) {
             const pointB = points[j];
             const force = pointA.repel(pointB.x, pointB.y, 100, 0.1);
