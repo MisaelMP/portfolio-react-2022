@@ -53,77 +53,81 @@ const ContactForm = () => {
 	};
 
 	return (
-		<div className='ContactForm'>
-			<div className='container mx-auto'>
-				<div className='max-w-md mx-auto my-8'>
-					<div className='text-center'>
-						<div className='contactForm'>
-							<form id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
-								<div className='grid grid-cols-1 gap-6'>
-									<input
-										type='text'
-										name='name'
-										{...register('name', {
-											required: { value: true, message: 'Please enter your name' },
-											maxLength: {
-												value: 30,
-												message: 'Please use 30 characters or less',
-											},
-										})}
-										className='form-input'
-										placeholder='Name'
-									/>
-									{errors.name && <span className='errorMessage'>{errors.name.message}</span>}
-									<input
-										type='email'
-										name='email'
-										{...register('email', {
-											required: { value: true, message: 'Please enter a valid email address' },
-											pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-										})}
-										className='form-input'
-										placeholder='Email address'
-									/>
-									{errors.email && <span className='errorMessage'>{errors.email.message}</span>}
-									<input
-										type='text'
-										name='subject'
-										{...register('subject', {
-											required: { value: true, message: 'Please enter a subject' },
-											maxLength: {
-												value: 75,
-												message: 'Subject cannot exceed 75 characters',
-											},
-										})}
-										className='form-input'
-										placeholder='Subject'
-									/>
-									{errors.subject && <span className='errorMessage'>{errors.subject.message}</span>}
-									<textarea
-										rows={3}
-										name='message'
-										{...register('message', {
-											required: true,
-										})}
-										className='form-input'
-										placeholder='Message'
-									></textarea>
-									{errors.message && <span className='errorMessage'>Please enter a message</span>}
-									<button
-										className='submit-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
-										type='submit'
-										disabled={disabled}
-									>
-										Submit
-									</button>
-								</div>
-							</form>
+		<div className="w-clamp text-center">
+			<div className='m-4 md:m-8'>
+				<form className=' flex flex-col gap-2 lg:gap-4' id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
+					<h2 className='text-3xl font-bold'>Get in touch:</h2>
+					<div className='flex flex-col gap-1'>
+						<input
+							className='p-2 md:p-3'
+							type='text'
+							name='name'
+							{...register('name', {
+								required: { value: true, message: 'Please enter your name' },
+								maxLength: {
+									value: 30,
+									message: 'Please use 30 characters or less',
+								},
+							})}
+							placeholder='Name'
+						/>
+						{errors.name && <span className='text-slate-200'>{errors.name.message}</span>}
+					</div>
+					<div className='flex flex-col md:flex-row gap-2 md:gap-4'>
+						<div className='flex flex-col gap-1 flex-1'>
+							<input
+								className='p-2 md:p-3'
+								type='email'
+								name='email'
+								{...register('email', {
+									required: { value: true, message: 'Please enter a valid email address' },
+									pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+								})}
+								placeholder='Email address'
+							/>
+							{errors.email && <span className='text-slate-200'>{errors.email.message}</span>}
+						</div>
+						<div className='flex flex-col gap-1 lg:flex-1'>
+							<input
+								className='p-2 md:p-3'
+								type='text'
+								name='subject'
+								{...register('subject', {
+									required: { value: true, message: 'Please enter a subject' },
+									maxLength: {
+										value: 75,
+										message: 'Subject cannot exceed 75 characters',
+									},
+								})}
+								placeholder='Subject'
+							/>
+							{errors.subject && <span className='text-slate-200'>{errors.subject.message}</span>}
 						</div>
 					</div>
-				</div>
+					<div className='flex flex-col gap-1'>
+						<textarea
+							className='p-2 md:p-3'
+							rows={3}
+							name='message'
+							{...register('message', {
+								required: true,
+							})}
+							placeholder='Message'
+						></textarea>
+						{errors.message && <span className='text-slate-200'>Please enter a message</span>}
+					</div>
+					<button
+						className='bg-[#16161d] hover:opacity-70 text-white font-bold py-4 px-4 rounded mx-auto w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yello mt-2 lg:mt-4'
+						type='submit'
+						disabled={disabled}
+					>
+						Submit
+					</button>
+				</form>
 			</div>
+
 			{alertInfo.display && (
-				<div className={`alert alert-${alertInfo.type} alert-dismissible mt-5`} role='alert'>
+				<div className={`alert alert-${alertInfo.type} text-white mt-5`} role='alert'>
 					{alertInfo.message}
 					<button
 						type='button'

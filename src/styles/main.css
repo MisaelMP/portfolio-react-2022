@@ -1,23 +1,4 @@
-@import "settings/all.css";
-@import "generic/all.css";
-@import "vendors/all.css";
-
-.fade-enter {
-  transform: rotateY(-90deg);
-  transform-origin: left;
-}
-
-.fade-enter-active {
-  transform: rotateY(0deg);
-  transition: transform 300ms;
-}
-
-.fade-exit {
-  transform: rotateY(0deg);
-}
-
-.fade-exit-active {
-  transform: rotateY(90deg);
-  transform-origin: left;
-  transition: transform 300ms;
-}
+@import 'settings/all.css';
+@import 'generic/all.css';
+@import 'vendors/all.css';
+@import 'tools/all.css';

@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "@types/node": "^20.14.2",
     "@types/p5": "^1.7.6",
     "@types/react-transition-group": "^4.4.10",
