@@ -10,10 +10,6 @@ module.exports = {
 			width: {
 				clamp: 'clamp(23.5rem, 100vw, 40rem)',
 			},
-			screens: {
-				landscape: { raw: '(orientation: landscape)' },
-        'phone-landscape': {'raw': '(max-width: 375px) and (orientation: landscape)'},
-			},
 		},
 	},
 	plugins: [require('@tailwindcss/forms')],
