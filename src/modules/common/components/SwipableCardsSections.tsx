@@ -12,7 +12,7 @@ import styles from '../../../styles/layout.module.css';
 interface CardData {
 	title: string;
 	section: string;
-	children: React.ReactNode;
+	children: React.ReactElement<any, string | React.JSXElementConstructor<any>> | null;
 	style?: React.CSSProperties;
 }
 
