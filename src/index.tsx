@@ -14,35 +14,37 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <App />,
-    children: [
-      {
-        path: '/',
-        element: <LandingPage />,
-      },
-      {
-        path: '/About',
-        element: <AboutPage />,
-      },
-      {
-        path: '/Skillset',
-        element: <SkillsPage />,
-      },
-      {
-        path: '/Projects',
-        element: <ProjectsPage />,
-      },
-      {
-        path: '/Contact',
-        element: <ContactPage />,
-      }
-    ],
+		children: [
+			{
+				path: '/',
+				element: <LandingPage />,
+			},
+			{
+				path: '/About',
+				element: <AboutPage />,
+			},
+			{
+				path: '/Skillset',
+				element: <SkillsPage />,
+			},
+			{
+				path: '/Projects',
+				element: <ProjectsPage />,
+			},
+			{
+				path: '/Contact',
+				element: <ContactPage />,
+			},
+		],
 	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<RouterProvider router={router}>
+			<App />
+		</RouterProvider>
 	</React.StrictMode>
 );
 

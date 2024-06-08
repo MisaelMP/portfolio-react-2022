@@ -19,7 +19,7 @@ const Section = ({ title, children, section }: SectionProps) => {
 
   return (
     <section className={`${styles.section} o-section--${section}`}>
-        <h2>{ title }</h2>
+        {title ? <h2>{ title }</h2> : null}
         { children }
     </section>
   )

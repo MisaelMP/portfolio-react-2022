@@ -1,7 +1,8 @@
 import navbarItems from '../../../data/navbarItems.json';
 import styles from '../../../styles/elements/navbar.module.css';
 import { useEffect, useState, useRef } from 'react';
-import { Bars3Icon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ReactComponent as Logo } from '../../../assets/icons/MisaelLogo1.svg'
 import { useGesture } from '@use-gesture/react';
 import { Link } from 'react-router-dom';
 
@@ -59,12 +60,16 @@ const Navbar = () => {
 
 	return (
 		<nav className={`${styles.navbar}`}>
-			<Link to='/'>
-				<h1 className='font-bold font-montserrat text-center text-8xl'>Misael M.</h1>
+			<Link onClick={() => setIsMenuOpen(false)} to='/'>
+				<Logo />
 			</Link>
 			{isMobile && (
 				<button onClick={toggleMenu} className={styles.navbarHamburger}>
-					<Bars3Icon className={styles.navbarHamburgerIcon} />
+					{isMenuOpen ? (
+						<XMarkIcon className={styles.navbarHamburgerIcon} />
+					) : (
+						<Bars3Icon className={styles.navbarHamburgerIcon} />
+					)}
 				</button>
 			)}
 			<ul
@@ -81,7 +86,9 @@ const Navbar = () => {
 				{navbarItems &&
 					navbarItems.map((item: NavItemProps, index: number) => (
 						<li key={index}>
-							<Link to={item.href}>{item.title}</Link>
+							<Link onClick={() => setIsMenuOpen(false)} to={item.href}>
+								{item.title}
+							</Link>
 						</li>
 					))}
 			</ul>

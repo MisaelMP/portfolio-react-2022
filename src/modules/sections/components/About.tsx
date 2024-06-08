@@ -1,7 +1,7 @@
 
 const About = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-8 md:max-w-[50%]">
+    <div className="flex flex-col items-center justify-center max-w-1/2">
       <h2>I was thinking about you</h2>
       <h3>(prolegomena)</h3>
       <p>
