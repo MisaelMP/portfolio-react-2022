@@ -1,6 +1,6 @@
 import navbarItems from '../../../data/navbarItems.json';
 import styles from '../../../styles/elements/navbar.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { useGesture } from '@use-gesture/react';
 import { Link } from 'react-router-dom';
@@ -14,31 +14,37 @@ interface NavItemProps {
 const Navbar = () => {
 	const [isMobile, setIsMobile] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const isResizing = useRef(false);
 
 	useEffect(() => {
 		const mediaQuery = '(min-width: 768px)';
-		const mediaQueryMatch = window.matchMedia(mediaQuery);
+		const mediaQueryList = window.matchMedia(mediaQuery);
 
-		const handleClassByMediaQuery = (event: { matches: any }) => {
+		// Handler to update states based on media query match
+		const handleClassByMediaQuery = (event: MediaQueryListEvent) => {
 			const isDesktop = event.matches;
 			setIsMobile(!isDesktop);
 			if (isDesktop) setIsMenuOpen(false); // Ensure menu is closed on desktop
+			isResizing.current = true; // Set resizing flag to true
+			setTimeout(() => (isResizing.current = false), 500);
 		};
 
-		mediaQueryMatch.addEventListener('change', handleClassByMediaQuery);
+		mediaQueryList.addEventListener('change', handleClassByMediaQuery);
 
-		// Initial check
-		handleClassByMediaQuery(mediaQueryMatch);
+		// Initial check for setting isMobile state based on current screen size
+		setIsMobile(!mediaQueryList.matches);
 
 		return () => {
-			mediaQueryMatch.removeEventListener('change', handleClassByMediaQuery);
+			mediaQueryList.removeEventListener('change', handleClassByMediaQuery);
 		};
 	}, []);
 
+	// Toggle menu open/close state
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
 
+	// Use gesture to handle drag events for opening/closing the menu
 	useGesture({
 		onDrag: ({ movement: [mx], cancel }) => {
 			if (mx > 100) {
@@ -63,7 +69,13 @@ const Navbar = () => {
 			)}
 			<ul
 				className={`${styles.navbarMenu} ${
-					isMobile ? (isMenuOpen ? styles.navbarMenuOpen : styles.navbarMenuClosed) : ''
+					isMobile
+						? isMenuOpen
+							? styles.navbarMenuOpen
+							: isResizing.current
+							? styles.navbarMenuNoTransition
+							: styles.navbarMenuClosed
+						: ''
 				}`}
 			>
 				{navbarItems &&
