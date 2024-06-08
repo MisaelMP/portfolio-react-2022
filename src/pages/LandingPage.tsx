@@ -1,10 +1,10 @@
 import Blob from '../modules/p5/components/Blob';
 
 const LandingPage = () => {
-	return (  
+	return (
 		<>
-			<main>
-				{/* <Blob /> */}
+			<main className='relative h-full w-full' data-canvas>
+				<Blob /> 
 			</main>
 		</>
 	);

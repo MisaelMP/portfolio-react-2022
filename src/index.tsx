@@ -10,20 +10,24 @@ import AboutPage from './pages/AboutPage';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <LandingPage />,
-	},
-	{
-		path: '/About',
-		element: <AboutPage />,
+		element: <App />,
+    children: [
+      {
+        path: '/',
+        element: <LandingPage />,
+      },
+      {
+        path: '/About',
+        element: <AboutPage />,
+      }
+    ],
 	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
 	<React.StrictMode>
-		<App>
-			<RouterProvider router={router} />
-		</App>
+		<RouterProvider router={router} />
 	</React.StrictMode>
 );
 

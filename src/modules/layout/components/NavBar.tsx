@@ -3,6 +3,7 @@ import styles from '../../../styles/elements/navbar.module.css';
 import { useEffect, useState } from 'react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { useGesture } from '@use-gesture/react';
+import { Link } from 'react-router-dom';
 
 interface NavItemProps {
 	title: string;
@@ -61,7 +62,7 @@ const Navbar = () => {
 				{navbarItems &&
 					navbarItems.map((item: NavItemProps, index: number) => (
 						<li key={index}>
-							<a href={item.href}>{item.title}</a>
+							<Link to={item.href}>{item.title}</Link>
 						</li>
 					))}
 			</ul>
