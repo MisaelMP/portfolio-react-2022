@@ -26,17 +26,17 @@ function App(): JSX.Element {
 				<NavBar />
 			</header>
 			<main
-				className='relative h-full w-full overflow-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200 '
+				className='relative h-full w-full overflow-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200'
 				data-canvas
 				ref={mainRef}
 			>
-				<TransitionGroup className='h-full'>
+				<TransitionGroup className='h-screen lg:h-full overflow-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200'>
 					<CSSTransition timeout={200} classNames='fade' key={location.key}>
 						<Outlet />
 					</CSSTransition>
 				</TransitionGroup>
 			</main>
-			<footer className='mt-auto z-20' ref={footerRef}>
+			<footer className='mt-auto z-20 w-full' ref={footerRef}>
 				<Section section='footer'>
 					<Footer />
 				</Section>
