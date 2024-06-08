@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import LandingPage from './pages/LandingPage';
 import AboutPage from './pages/AboutPage';
+import SkillsPage from './pages/SkillsPage';
+import ProjectsPage from './pages/ProjectsPage';
+import ContactPage from './pages/ContactPage';
 
 const router = createBrowserRouter([
 	{
@@ -19,6 +22,18 @@ const router = createBrowserRouter([
       {
         path: '/About',
         element: <AboutPage />,
+      },
+      {
+        path: '/Skillset',
+        element: <SkillsPage />,
+      },
+      {
+        path: '/Projects',
+        element: <ProjectsPage />,
+      },
+      {
+        path: '/Contact',
+        element: <ContactPage />,
       }
     ],
 	},

@@ -1,73 +1,80 @@
 /* navbar.module.css */
 .navbar {
-  @apply relative;
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #16161d;
+	color: #a1a1a6;
+	padding: 0.5rem;
+	height: var(--navbar-height);
 
-  & ul {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding-top: 1rem;
-    width: 100%;
+	@media (min-width: 768px) {
+		padding: 2rem;
+	}
 
-    @screen md {
-      display: flex;
-      width: auto;
-    }
+	ul {
+		display: flex;
+		gap: 1rem;
+		width: 100%;
 
+		@media (min-width: 768px) {
+			width: auto;
+		}
 
-    & li {
-      display: inline-block;
-      margin: 0;
-      padding: 1rem 0;
-      width: 100%;
+		li {
+			display: inline-block;
+			margin: 0;
+			padding: 1rem 0;
+			width: 100%;
 
-      & a {
-        text-transform: capitalize;
-        font-size: 1rem;
-        color: #717171;
-      }
-    }
-  }
+			a {
+				text-transform: capitalize;
+				font-size: 1rem;
+			}
+		}
+	}
+
+	.navbarHamburger {
+		background: none;
+		cursor: pointer;
+		border: none;
+	}
+
+	.navbarHamburgerIcon {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	.navbarMenu {
+		display: flex;
+	}
+
+	.navbarMenuClosed {
+		transform: translateX(100%);
+    transition: all 0.3s ease-in-out;
+		display: block;
+		height: 100vh;
+    width: 0;
+    overflow: hidden;
+		position: absolute;
+		top: var(--navbar-height);
+		right: 0;
+		background-color: #a1a1a6;
+		color: #16161d;
+	}
+
+	.navbarMenuOpen {
+		@media (max-width: 767px) {
+			display: block;
+			height: 100vh;
+			position: absolute;
+			top: var(--navbar-height);
+			background-color: #a1a1a6;
+			color: #16161d;
+			right: 0;
+			transform: translateX(0);
+			z-index: 1;
+		}
+	}
 }
-
-.hamburger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.hamburgerIcon {
-  width: 24px;
-  height: 24px;
-}
-
-.menu {
-  display: flex;
-  flex-direction: row;
-  transition: transform 0.3s ease-in-out;
-}
-
-@media (max-width: 767px) {
-  .menu {
-    display: block;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    background-color: #fff; /* Adjust color as needed */
-    transform: translateX(-100%);
-  }
-
-  .menuClosed {
-    transform: translateX(-100%);
-    display: none;
-  }
-
-  .menuOpen {
-    transform: translateX(0);
-    display: block;
-  }
-}
-

@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react';
 
 const About = () => {
   return (
-    <Fragment>
+    <div className="flex flex-col justify-center items-center gap-8 md:max-w-[50%]">
       <h2>I was thinking about you</h2>
       <h3>(prolegomena)</h3>
       <p>
@@ -13,7 +12,7 @@ const About = () => {
         years, I have dabbled in the world of programming, creative and functional, which I try to implement in my
         projects where possible.
       </p>
-    </Fragment>
+    </div>
   );
 };
 

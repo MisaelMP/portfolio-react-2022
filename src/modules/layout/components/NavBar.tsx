@@ -52,13 +52,20 @@ const Navbar = () => {
 	});
 
 	return (
-		<nav className={`${styles.navbar} ${isMobile ? 'w-3/4' : 'w-full'}`}>
+		<nav className={`${styles.navbar}`}>
+			<Link to='/'>
+				<h1 className='font-bold font-montserrat text-center text-8xl'>Misael M.</h1>
+			</Link>
 			{isMobile && (
-				<button onClick={toggleMenu} className={styles.hamburger}>
-					<Bars3Icon className={styles.hamburgerIcon} />
+				<button onClick={toggleMenu} className={styles.navbarHamburger}>
+					<Bars3Icon className={styles.navbarHamburgerIcon} />
 				</button>
 			)}
-			<ul className={`${styles.menu} ${isMobile && !isMenuOpen ? styles.menuClosed : styles.menuOpen}`}>
+			<ul
+				className={`${styles.navbarMenu} ${
+					isMobile ? (isMenuOpen ? styles.navbarMenuOpen : styles.navbarMenuClosed) : ''
+				}`}
+			>
 				{navbarItems &&
 					navbarItems.map((item: NavItemProps, index: number) => (
 						<li key={index}>
