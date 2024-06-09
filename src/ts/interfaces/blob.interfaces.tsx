@@ -28,4 +28,39 @@ interface JointParams {
   draw: Function;
 }
 
-export type { JointParams, PointParams };
+  interface Point {
+		x: number;
+		y: number;
+		oldx: number;
+		oldy: number;
+		nextx: number;
+		nexty: number;
+		delayedx: number;
+		delayedy: number;
+		radius: number;
+		originalRadius: number;
+		damping: number;
+		friction: number;
+		parent: any;
+		maxVelocity: number;
+		color: number;
+		addForce(x: number, y: number, instant?: boolean): void;
+		attract(otherX: number, otherY: number, strength?: number): void;
+		repel(otherX: number, otherY: number, radius?: number, strength?: number): { x: number; y: number } | null;
+		collide(otherX: number, otherY: number, radius: number): void;
+		constrain(left: number, top: number, right: number, bottom: number): void;
+		update(dt?: number): void;
+		draw(ctx: any): void;
+	}
+
+	interface Joint {
+		pointA: Point;
+		pointB: Point;
+		originalLen: number;
+		len: number;
+		strength: number;
+		update(dt?: number): void;
+		draw(ctx: any): void;
+	}
+
+export type { JointParams, PointParams, Point, Joint};
