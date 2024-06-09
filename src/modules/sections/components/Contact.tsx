@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm, FieldValues } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 
-const ContactForm = () => {
+const ContactForm: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
@@ -53,7 +53,7 @@ const ContactForm = () => {
 	};
 
 	return (
-		<div className="w-clamp text-center">
+		<div className='w-clamp text-center'>
 			<div className='m-4 md:m-8'>
 				<form className=' flex flex-col gap-2 lg:gap-4' id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
 					<h2 className='text-3xl font-bold'>Get in touch:</h2>
@@ -61,7 +61,7 @@ const ContactForm = () => {
 						<input
 							className='p-2 md:p-3'
 							type='text'
-							name='name'
+              name='name'
 							{...register('name', {
 								required: { value: true, message: 'Please enter your name' },
 								maxLength: {

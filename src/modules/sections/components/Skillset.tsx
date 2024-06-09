@@ -1,5 +1,5 @@
 
-const Skillset = () => {
+const Skillset:React.FC = () => {
   return (
     <>
       <h2>I was thinking Contact you</h2>
