@@ -1,9 +1,9 @@
-import TypoLandPage from "../modules/interaction/components/typoLandPage";
+// import TypoLandPage from "../modules/interaction/components/typoLandPage";
 
 const LandingPage = () => {
 	return (
 		<>
-			<TypoLandPage />
+			{/* <TypoLandPage /> */}
 		</>
 	);
 };
