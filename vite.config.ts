@@ -5,17 +5,9 @@ import svgrPlugin from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react({
-      babel: {
-        plugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
-      },
-    }),
-    viteTsconfigPaths(),
-    svgrPlugin(),
-  ],
-  server: {
-    open: true,
-    port: 4000,
-  },
+	plugins: [react({}), viteTsconfigPaths(), svgrPlugin()],
+	server: {
+		open: true,
+		port: 4000,
+	},
 });

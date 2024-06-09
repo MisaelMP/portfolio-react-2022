@@ -1,5 +1,12 @@
 :root {
 	--navbar-height: 6rem;
-  --color-primary: #16161d;
-  --color-secondary:#f56565;
+
+  /* Colours */
+  --primary-colour: #16161d;
+  --secondary-colour:#f56565;
+  --background-colour: #f8f8ff;
+
+  /* Fonts */
+  --text-base: 16px;
+  --body-font: 'Hind', sans-serif;
 }

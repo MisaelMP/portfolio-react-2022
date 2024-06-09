@@ -4,7 +4,7 @@
 	position: relative;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #16161d;
+	background-color: var(--primary-colour);
 	color: #a1a1a6;
 	padding: 0.5rem;
 	height: var(--navbar-height);
@@ -61,7 +61,7 @@
 		top: var(--navbar-height);
 		right: 0;
 		background-color: #a1a1a6;
-		color: #16161d;
+		color: var(--primary-colour);
 	}
 
 	.navbarMenuOpen {
@@ -71,7 +71,7 @@
 			position: absolute;
 			top: var(--navbar-height);
 			background-color: #a1a1a6;
-			color: #16161d;
+			color: var(--primary-colour);
 			right: 0;
 			transform: translateX(0);
 			transition: all 0.3s ease-in-out;
@@ -89,7 +89,7 @@
 		top: var(--navbar-height);
 		right: 0;
 		background-color: #a1a1a6;
-		color: #16161d;
+		color: var(--primary-colour);
 		transition: none; /* Disable transition */
 	}
 }
