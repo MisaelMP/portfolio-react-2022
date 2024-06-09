@@ -19,7 +19,6 @@ const Blob = () => {
 					canvas.parent(parentElement);
 					canvas.position(0, 0);
 				}
-				// let canvas = p.createCanvas(p.windowWidth, p.windowHeight);
 
 				p.colorMode(p.HSB, 360, 100, 100, 100);
 
