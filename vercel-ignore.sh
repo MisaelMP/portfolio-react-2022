@@ -1,3 +1,4 @@
+VITE_VERCEL_GIT_COMMIT_REF=$(git rev-parse --abbrev-ref HEAD)
 echo "VITE_VERCEL_GIT_COMMIT_REF: $VITE_VERCEL_GIT_COMMIT_REF"
 
 if [[ "$VITE_VERCEL_GIT_COMMIT_REF" == "development" || "$VITE_VERCEL_GIT_COMMIT_REF" == "master"  ]] ; then
