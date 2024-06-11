@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import styles from '../styles/layout.module.css';
-// import SwipableCardsSections from '../modules/common/components/SwipableCardsSections';
+import Projects from '../modules/sections/components/Projects';
 
 const ProjectsPage: React.FC = () => {
 	return (
 		<Fragment>
 			<div className={`${styles.container} ${styles.container3}`}>
-				{/* <SwipableCardsSections /> */}
+        <Projects />
 			</div>
 		</Fragment>
 	);

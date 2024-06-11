@@ -1,9 +1,9 @@
 .container {
   width: 100%;
-  height: auto;
+  height: 100%;
   background: rgb(148 163 184 / 1);
-  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39,
-    auto;
+  /* cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39,
+    auto; */
   display: flex;
   align-items: center;
   justify-content: center;

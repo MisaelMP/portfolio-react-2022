@@ -1,25 +1,37 @@
 [
 	{
+    "title": "Drawing and Sound",
+    "description": "A web application that allows users to draw and create music. The user can draw on the canvas and the application will play a sound based on the color of the pixel that the user is drawing on. The user can also play a sound by clicking on the canvas. The user can also save their drawing and sound to the database.",
 		"src": "assets/images/drawingandSound.png",
 		"href": "https://drawing-sound.herokuapp.com/"
 	},
 	{
+    "title": "Inkspace",
+    "description": "A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
 		"src": "assets/images/inkspace.png",
 		"href": "https://inkspace.herokuapp.com/"
 	},
 	{
+    "title": "Pick It Up Mate",
+    "description": "A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
 		"src": "assets/images/pickitupmate.png",
 		"href": "https://rocky-gorge-25750.herokuapp.com/"
 	},
 	{
+    "title": "Portfolio",
+    "description": "A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
 		"src": "assets/images/asteroids1979.png",
 		"href": "https://asteroidsjavascript-imjarjjxzw.now.sh/"
 	},
 	{
+    "title": "Earth Moon System",
+    "description":"A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.", 
 		"src": "assets/images/earthmoonsystem.png",
 		"href": "https://misaelmp.github.io/Earth_Moon_System/"
 	},
 	{
+    "title": "Portfolio",
+    "description":"A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
 		"src": "assets/images/portfolio2.png",
 		"href": "http://second-cover.surge.sh/"
 	}
