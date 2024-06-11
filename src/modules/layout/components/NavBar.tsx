@@ -3,7 +3,6 @@ import styles from '../../../styles/elements/navbar.module.css';
 import { useEffect, useState, useRef } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ReactComponent as Logo } from '../../../assets/icons/MisaelLogo1.svg'
-import { useGesture } from '@use-gesture/react';
 import { Link } from 'react-router-dom';
 
 interface NavItemProps {
@@ -44,19 +43,6 @@ const Navbar = () => {
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
-
-	// Use gesture to handle drag events for opening/closing the menu
-	useGesture({
-		onDrag: ({ movement: [mx], cancel }) => {
-			if (mx > 100) {
-				setIsMenuOpen(true);
-				cancel();
-			} else if (mx < -100) {
-				setIsMenuOpen(false);
-				cancel();
-			}
-		},
-	});
 
 	return (
 		<nav className={`${styles.navbar}`}>

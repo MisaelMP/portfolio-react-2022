@@ -21,16 +21,12 @@ function App(): JSX.Element {
 		}
 	}, [location]);
 	return (
-		<div className='flex flex-col h-screen'>
+		<div className='flex flex-col'>
 			<header className='e-header' ref={headerRef}>
 				<NavBar />
 			</header>
-			<main
-				className='relative h-full w-full overflow-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200'
-				data-canvas
-				ref={mainRef}
-			>
-				<TransitionGroup className='h-screen lg:h-full overflow-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200'>
+			<main className='relative w-full h-full' data-canvas ref={mainRef}>
+				<TransitionGroup className='h-full'>
 					<CSSTransition timeout={200} classNames='fade' key={location.key}>
 						<Outlet />
 					</CSSTransition>
