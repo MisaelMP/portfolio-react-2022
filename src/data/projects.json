@@ -2,7 +2,7 @@
 	{
     "title": "Drawing and Sound",
     "description": "A web application that allows users to draw and create music. The user can draw on the canvas and the application will play a sound based on the color of the pixel that the user is drawing on. The user can also play a sound by clicking on the canvas. The user can also save their drawing and sound to the database.",
-		"src": "assets/images/drawingandSound.png",
+		"src": "/img/michael-hill.png",
 		"href": "https://drawing-sound.herokuapp.com/"
 	},
 	{

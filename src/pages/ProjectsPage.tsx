@@ -5,7 +5,7 @@ import Projects from '../modules/sections/components/Projects';
 const ProjectsPage: React.FC = () => {
 	return (
 		<Fragment>
-			<div className={`${styles.container} ${styles.container3}`}>
+			<div className={`${styles.container} !bg-[var(--background-wine)]`}>
         <Projects />
 			</div>
 		</Fragment>

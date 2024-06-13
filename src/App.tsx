@@ -8,31 +8,29 @@ import { useLocation } from 'react-router-dom';
 
 function App(): JSX.Element {
 	const location = useLocation();
-	const headerRef = useRef<HTMLDivElement>(null);
-	const footerRef = useRef<HTMLDivElement>(null);
-	const mainRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
-		const footerHeight = footerRef.current ? footerRef.current.offsetHeight : 0;
-		const mainHeight = `calc(100vh - ${headerHeight}px - ${footerHeight}px)`;
-		if (mainRef.current) {
-			mainRef.current.style.height = mainHeight;
-		}
-	}, [location]);
+  useEffect(() => {
+    const canvas = document.querySelector('[data-canvas]');
+    if (canvas) {
+      canvas.scrollTop = 0;
+    }
+
+  }, [location])
+  
+
 	return (
 		<div className='flex flex-col'>
-			<header className='e-header' ref={headerRef}>
+			<header className='z-20'>
 				<NavBar />
 			</header>
-			<main className='relative w-full h-full' data-canvas ref={mainRef}>
+			<main className='relative w-full h-full min-h-screen' data-canvas>
 				<TransitionGroup className='h-full'>
 					<CSSTransition timeout={200} classNames='fade' key={location.key}>
 						<Outlet />
 					</CSSTransition>
 				</TransitionGroup>
 			</main>
-			<footer className='mt-auto z-20 w-full' ref={footerRef}>
+			<footer className='mt-auto z-20 w-full'>
 				<Section section='footer'>
 					<Footer />
 				</Section>
