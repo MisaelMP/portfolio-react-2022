@@ -1,0 +1,5 @@
+:root {
+  --swiper-navigation-color: var(--background-orange-light);
+  --swiper-pagination-color: var(--background-orange-light);
+  --swiper-navigation-sides-offset: 0.25rem;
+}

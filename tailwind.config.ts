@@ -8,7 +8,7 @@ module.exports = {
 				montserrat: ['Montserrat'],
 			},
 			width: {
-				clamp: 'clamp(23.5rem, 100vw, 40rem)',
+				clamp: 'clamp(21rem, 50vw, 125rem)',
 			},
 		},
 	},
