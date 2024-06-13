@@ -9,18 +9,25 @@ const LandingPage: React.FC = () => {
 	const [init, setInit] = useState(false);
 	const location = useLocation();
 	const key = location.pathname;
+	const [isTransitionComplete, setIsTransitionComplete] = useState(false);
 
 	useEffect(() => {
+		const transitionDuration = 200; 
+		const timeoutId = setTimeout(() => {
+			setIsTransitionComplete(true);
+		}, transitionDuration);
+
 		initParticlesEngine(async (engine) => {
 			await loadSlim(engine);
 		}).then(() => {
 			setInit(true);
 		});
+
+		return () => clearTimeout(timeoutId); // clean up on unmount
 	}, [key]);
 
 	const particlesLoaded = async (container?: Container): Promise<void> => {
 		console.log(container);
-		setInit(true);
 	};
 
 	const options: ISourceOptions = useMemo(
@@ -85,12 +92,16 @@ const LandingPage: React.FC = () => {
 		}),
 		[]
 	);
-
-	return (
-		<>
-			<div key={key}>{init && <Particles options={options} particlesLoaded={particlesLoaded} />}</div>
-		</>
-	);
+	if (init && isTransitionComplete) {
+		return (
+			<>
+				<div key={key}>
+					<Particles options={options} particlesLoaded={particlesLoaded} />
+				</div>
+			</>
+		);
+	}
+	return null;
 };
 
 export default LandingPage;

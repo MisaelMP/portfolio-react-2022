@@ -41,24 +41,25 @@
 			display: inline-block;
 			margin: 0;
 			width: 100%;
-			cursor: pointer;
+		}
+
+		a {
 			padding: 1rem 2rem;
+			display: block;
+			cursor: pointer;
+			width: 100%;
+			text-transform: capitalize;
 
 			&:hover {
 				background-color: var(--background-orange-light);
 			}
 
 			@media (min-width: 768px) {
-        padding: 0;
+				padding: 0;
 				&:hover {
 					background-color: transparent;
 				}
 			}
-		}
-
-		a {
-			width: 100%;
-			text-transform: capitalize;
 		}
 	}
 
