@@ -61,7 +61,6 @@ const ContactForm: React.FC = () => {
 						<input
 							className='p-2 md:p-3'
 							type='text'
-              name='name'
 							{...register('name', {
 								required: { value: true, message: 'Please enter your name' },
 								maxLength: {
@@ -71,27 +70,25 @@ const ContactForm: React.FC = () => {
 							})}
 							placeholder='Name'
 						/>
-						{errors.name && <span className='text-slate-200'>{errors.name.message}</span>}
+						{errors.name && <span className='text-slate-200'>{errors.name?.message?.toString()}</span>}
 					</div>
 					<div className='flex flex-col md:flex-row gap-2 md:gap-4'>
 						<div className='flex flex-col gap-1 flex-1'>
 							<input
 								className='p-2 md:p-3'
 								type='email'
-								name='email'
 								{...register('email', {
 									required: { value: true, message: 'Please enter a valid email address' },
 									pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
 								})}
 								placeholder='Email address'
 							/>
-							{errors.email && <span className='text-slate-200'>{errors.email.message}</span>}
+							{errors.email && <span className='text-slate-200'>{errors.email?.message?.toString()}</span>}
 						</div>
 						<div className='flex flex-col gap-1 lg:flex-1'>
 							<input
 								className='p-2 md:p-3'
 								type='text'
-								name='subject'
 								{...register('subject', {
 									required: { value: true, message: 'Please enter a subject' },
 									maxLength: {
@@ -101,14 +98,13 @@ const ContactForm: React.FC = () => {
 								})}
 								placeholder='Subject'
 							/>
-							{errors.subject && <span className='text-slate-200'>{errors.subject.message}</span>}
+							{errors.subject && <span className='text-slate-200'>{errors.subject?.message?.toString()}</span>}
 						</div>
 					</div>
 					<div className='flex flex-col gap-1'>
 						<textarea
 							className='p-2 md:p-3'
 							rows={3}
-							name='message'
 							{...register('message', {
 								required: true,
 							})}
