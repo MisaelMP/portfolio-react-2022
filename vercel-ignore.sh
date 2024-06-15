@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 VITE_VERCEL_GIT_COMMIT_REF=$(git rev-parse --abbrev-ref HEAD)
 echo "VITE_VERCEL_GIT_COMMIT_REF: $VITE_VERCEL_GIT_COMMIT_REF"
 
@@ -8,6 +9,9 @@ if [[ "$VITE_VERCEL_GIT_COMMIT_REF" == "development" || "$VITE_VERCEL_GIT_COMMIT
 
 else
   # Don't build
+=======
+if [ "$VERCEL_GIT_COMMIT_REF" != "master" ] && [ "$VERCEL_GIT_COMMIT_REF" != "development" ]; then
+>>>>>>> Stashed changes
   echo "🛑 - Build cancelled"
-  exit 0;
+  exit 0
 fi
