@@ -1,38 +1,44 @@
 [
 	{
-    "title": "Drawing and Sound",
+    "title": "Michael HIll",
     "description": "A web application that allows users to draw and create music. The user can draw on the canvas and the application will play a sound based on the color of the pixel that the user is drawing on. The user can also play a sound by clicking on the canvas. The user can also save their drawing and sound to the database.",
 		"src": "/img/michael-hill.png",
-		"href": "https://michaelhill.com/"
+		"href": "https://www.michaelhill.com.au/"
 	},
 	{
-    "title": "Inkspace",
+    "title": "Mcgrath",
     "description": "A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
-		"src": "assets/images/inkspace.png",
-		"href": "https://inkspace.herokuapp.com/"
+		"src": "/img/mcgrath.png",
+		"href": "https://canvasgroup.com.au/project/mcgrath/"
 	},
 	{
-    "title": "Pick It Up Mate",
+    "title": "National Rugby League",
     "description": "A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
 		"src": "/img/nrl-website.png",
-		"href": "https://nrl.com/"
+		"href": "https://www.nrl.com/"
 	},
 	{
-    "title": "Portfolio",
+    "title": "Asteroinds 1979",
     "description": "A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
-		"src": "assets/images/asteroids1979.png",
+		"src": "/img/asteroids-1979.png",
 		"href": "https://asteroidsjavascript-imjarjjxzw.now.sh/"
 	},
 	{
     "title": "Earth Moon System",
     "description":"A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.", 
-		"src": "assets/images/earthmoonsystem.png",
+		"src": "/img/earth-moon.png",
 		"href": "https://misaelmp.github.io/Earth_Moon_System/"
 	},
 	{
     "title": "Portfolio",
     "description":"A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
-		"src": "assets/images/portfolio2.png",
+		"src": "/img/second-portfolio.png",
 		"href": "http://second-cover.surge.sh/"
+	},
+	{
+    "title": "Park Victoria",
+    "description":"A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
+		"src": "/img/parks-victoria.png",
+		"href": "http://parksvictoria"
 	}
 ]

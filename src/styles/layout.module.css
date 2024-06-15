@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--navbar-height) 1rem;
+  padding: 1rem;
 
   @screen md {
     padding: 2rem 4rem;
