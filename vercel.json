@@ -1,6 +1,20 @@
 {
+	"version": 2,
+	"builds": [
+		{
+			"src": "index.html",
+			"use": "@vercel/static-build",
+			"config": {
+				"distDir": "dist"
+			}
+		}
+	],
 	"github": {
-		"autoJobCancelation": false
-	},
-	"ignoreCommand": "bash ./vercel-ignore.sh"
+		"enabled": true,
+		"silent": false,
+		"deployments": {
+			"production": ["master"],
+			"preview": ["development"]
+		}
+	}
 }
