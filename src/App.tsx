@@ -28,7 +28,7 @@ function App(): JSX.Element {
 					</CSSTransition>
 				</TransitionGroup>
 			</main>
-			<footer className='mt-auto z-20 w-full'>
+			<footer className='mt-auto z-10 w-full'>
 				<Section section='footer'>
 					<Footer />
 				</Section>

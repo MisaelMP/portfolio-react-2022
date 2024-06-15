@@ -56,7 +56,7 @@ const ContactForm: React.FC = () => {
 		<div className='w-clamp text-center'>
 			<div className='m-4 md:m-8'>
 				<form className=' flex flex-col gap-2 lg:gap-4' id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
-					<h2 className='text-3xl font-bold'>Get in touch:</h2>
+					<h2 className='font-montserrat text-3xl font-bold'>Get in touch:</h2>
 					<div className='flex flex-col gap-1'>
 						<input
 							className='p-2 md:p-3'
