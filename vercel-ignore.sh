@@ -1,4 +1,4 @@
-echo "VITE_VERCEL_GIT_COMMIT_REF: '$VERCEL_GIT_COMMIT_REF'"
+echo "VITE_VERCEL_GIT_COMMIT_REF: '$VITE_VERCEL_GIT_COMMIT_REF'"
 
 if [ "$VITE_VERCEL_GIT_COMMIT_REF" != "master" ] && [ "$VITE_VERCEL_GIT_COMMIT_REF" != "development" ]; then
   echo "🛑 - Build cancelled"
