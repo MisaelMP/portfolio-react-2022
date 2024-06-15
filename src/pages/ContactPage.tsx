@@ -5,7 +5,7 @@ const ContactPage: React.FC = () => {
 	return (
 		<>
 			<div
-				className={`${styles.container} !bg-[var(--background-brown)]`}
+				className={`${styles.container} ${styles.container4}`}
 			>
 				<ContactForm />
 			</div>
