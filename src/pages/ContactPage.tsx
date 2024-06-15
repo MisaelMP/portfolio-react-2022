@@ -5,7 +5,7 @@ const ContactPage: React.FC = () => {
 	return (
 		<>
 			<div
-				className={`${styles.container} ${styles.container4} overflow-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-200`}
+				className={`${styles.container} ${styles.container4}`}
 			>
 				<ContactForm />
 			</div>
