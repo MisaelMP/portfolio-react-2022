@@ -1,9 +1,9 @@
 
 const About = () => {
   return (
-		<div className='flex flex-col items-center justify-center max-w-1/2 gap-8 w-clamp'>
-			<h2>I was thinking about you</h2>
-			<h3>(prolegomena)</h3>
+		<div className='flex flex-col items-center justify-center gap-8 w-clamp text-center'>
+			<h2 className='font-montserrat font-bold text-5xl'>I was thinking about you</h2>
+			<h3 className='font-montserrat font-bold'>(prolegomena)</h3>
 			<p>
 				Misael M. is a Mexican-Australian Full- Stack Web Developer with a background as an Art Director, Curator,
 				Artist, Cacti Collector, Tavern Philosopher, aspiring Creative Programmer and of course... a good citizen. By

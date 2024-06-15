@@ -1,38 +1,34 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import NavBar from './modules/layout/components/NavBar';
 import Footer from './modules/layout/components/Footer';
 import Section from './modules/common/components/Section';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 function App(): JSX.Element {
 	const location = useLocation();
-	const headerRef = useRef<HTMLDivElement>(null);
-	const footerRef = useRef<HTMLDivElement>(null);
-	const mainRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
-		const footerHeight = footerRef.current ? footerRef.current.offsetHeight : 0;
-		const mainHeight = `calc(100vh - ${headerHeight}px - ${footerHeight}px)`;
-		if (mainRef.current) {
-			mainRef.current.style.height = mainHeight;
+		const canvas = document.querySelector('[data-canvas]');
+		if (canvas) {
+			canvas.scrollTop = 0;
 		}
 	}, [location]);
+
 	return (
 		<div className='flex flex-col'>
-			<header className='e-header' ref={headerRef}>
+			<header className='z-20'>
 				<NavBar />
 			</header>
-			<main className='relative w-full h-full' data-canvas ref={mainRef}>
+			<main className='relative w-full h-full' data-canvas>
 				<TransitionGroup className='h-full'>
 					<CSSTransition timeout={200} classNames='fade' key={location.key}>
 						<Outlet />
 					</CSSTransition>
 				</TransitionGroup>
 			</main>
-			<footer className='mt-auto z-20 w-full' ref={footerRef}>
+			<footer className='mt-auto z-20 w-full'>
 				<Section section='footer'>
 					<Footer />
 				</Section>
