@@ -39,6 +39,14 @@ const Navbar = () => {
 		};
 	}, []);
 
+  useEffect(() => {
+		if (isMenuOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'auto';
+		}
+	}, [isMenuOpen]);
+
 	// Toggle menu open/close state
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
