@@ -1,6 +1,6 @@
 .section {
   background-color:  var(--secondary-colour);
-  color: var(--background-colour-white);
+  color: var(--background-white);
   display: flex;
   flex-direction: column;
   justify-content: center;

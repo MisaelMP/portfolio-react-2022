@@ -112,7 +112,7 @@ const ContactForm: React.FC = () => {
 					{errors.message && <span className='text-slate-200'>Please enter a message</span>}
 				</div>
 				<button
-					className='bg-[#16161d] hover:opacity-70 text-[var(--background-colour-white)] font-bold py-4 px-4 rounded mx-auto w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yello mt-2 lg:mt-4'
+					className='bg-[#16161d] hover:opacity-70 text-[var(--background-white)] font-bold py-4 px-4 rounded mx-auto w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yello mt-2 lg:mt-4'
 					type='submit'
 					disabled={disabled}
 				>

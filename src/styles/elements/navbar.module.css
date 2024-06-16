@@ -13,7 +13,7 @@
 	@media (min-width: 768px) {
 		padding: 2rem;
 	}
-  
+
 	.navbarIconWrapper {
 		background: none;
 		cursor: pointer;
@@ -23,7 +23,7 @@
 	.navbarIcon {
 		width: 1.5rem;
 		height: 1.5rem;
-    animation: bounce 0.5s;
+		animation: bounce 0.5s;
 	}
 
 	.navbarMenu {
@@ -45,7 +45,7 @@
 		}
 
 		a {
-			padding: 1rem 2rem;
+      padding: 1rem 2rem;
 			display: block;
 			cursor: pointer;
 			width: 100%;
@@ -59,10 +59,12 @@
 			}
 
 			@media (min-width: 768px) {
-				padding: 0;
-				&:hover {
-					 background-position: 0 0;
-				}
+        padding: 0;
+				background-image: linear-gradient(to right, var(--background-white) 50%, var(--background-orange-light) 50%);
+				
+				background-clip: text;
+				-webkit-background-clip: text;
+				color: transparent;
 			}
 		}
 	}
@@ -85,13 +87,13 @@
 		@media (max-width: 767px) {
 			display: block;
 			height: 100vh;
-      width: 100%;
+			width: 100%;
 			position: absolute;
 			top: var(--navbar-height);
 			background-color: #a1a1a6;
 			color: var(--primary-colour);
 			right: 0;
-      bottom: 0;
+			bottom: 0;
 			transform: translateX(0);
 			transition: all 0.3s ease-in-out;
 			z-index: 1;
@@ -109,13 +111,14 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
-    transform: scale(1.0);
-    animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
-  }
+	0%,
+	100% {
+		transform: scale(1);
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
 
-  50% {
-    transform: scale(1.5);
-    animation-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
-  }
+	50% {
+		transform: scale(1.5);
+		animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+	}
 }
