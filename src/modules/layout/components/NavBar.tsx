@@ -50,11 +50,11 @@ const Navbar = () => {
 				<Logo />
 			</Link>
 			{isMobile && (
-				<button onClick={toggleMenu} className={styles.navbarHamburger}>
+				<button onClick={toggleMenu} className={styles.navbarIconWrapper}>
 					{isMenuOpen ? (
-						<XMarkIcon className={styles.navbarHamburgerIcon} />
+						<XMarkIcon className={styles.navbarIcon} />
 					) : (
-						<Bars3Icon className={styles.navbarHamburgerIcon} />
+						<Bars3Icon className={styles.navbarIcon} />
 					)}
 				</button>
 			)}

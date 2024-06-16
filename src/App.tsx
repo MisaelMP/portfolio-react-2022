@@ -22,7 +22,7 @@ function App(): JSX.Element {
 				<NavBar />
 			</header>
 			<main className='relative w-full h-full' data-canvas>
-				<TransitionGroup className='h-full'>
+				<TransitionGroup className='h-screen'>
 					<CSSTransition timeout={200} classNames='fade' key={location.key}>
 						<Outlet />
 					</CSSTransition>
