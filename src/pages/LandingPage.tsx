@@ -1,9 +1,9 @@
-// import TypoLandPage from "../modules/interaction/components/typoLandPage";
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { type Container, type ISourceOptions, MoveDirection, OutMode } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
 import { useEffect, useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
+import { ReactComponent as LogoLanding } from '../assets/icons/MISAEL-MLogo.svg';
 
 const LandingPage: React.FC = () => {
 	const [init, setInit] = useState(false);
@@ -95,8 +95,16 @@ const LandingPage: React.FC = () => {
 	if (init && isTransitionComplete) {
 		return (
 			<>
-				<div key={key}>
+				<div key={key} className='flex justify-center items-center h-full'>
 					<Particles options={options} particlesLoaded={particlesLoaded} />
+					<a
+						href='/files/resume.pdf'
+						className='group flex justify-center items-center absolute w-[10rem] h-[5rem] hover:animate-bounce'
+						download
+						title='Download Resume'
+					>
+						<LogoLanding className='w-full h-full group-hover:fill-[var(--background-white)] transition-colors duration-500 ease-in-out' />
+					</a>
 				</div>
 			</>
 		);

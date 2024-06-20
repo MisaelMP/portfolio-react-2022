@@ -1,14 +1,13 @@
 import ContactForm from '../modules/sections/components/Contact';
-import styles from '../styles/layout.module.css';
+import Container from '../modules/common/components/Container';
+
 
 const ContactPage: React.FC = () => {
 	return (
 		<>
-			<div
-				className={`${styles.container} ${styles.container4}`}
-			>
+			<Container>
 				<ContactForm />
-			</div>
+			</Container>
 		</>
 	);
 };

@@ -1,13 +1,12 @@
 import Skillset from '../modules/sections/components/Skillset';
-import styles from '../styles/layout.module.css';
-
+import Container from '../modules/common/components/Container';
 
 const SkillsPage: React.FC = () => {	
 		return (
 			<>
-				<div className={`${styles.container} !bg-[var(--background-orange)]`}>	
+				<Container>	
 					<Skillset />
-				</div>
+				</Container>
 			</>
 		);
 	};

@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import NavBar from './modules/layout/components/NavBar';
 import Footer from './modules/layout/components/Footer';
-import Section from './modules/common/components/Section';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function App(): JSX.Element {
 	const location = useLocation();
@@ -16,22 +15,21 @@ function App(): JSX.Element {
 		}
 	}, [location]);
 
+
 	return (
 		<div className='flex flex-col'>
 			<header className='z-20'>
 				<NavBar />
 			</header>
-			<main className='relative w-full h-full' data-canvas>
-				<TransitionGroup className='h-full'>
+			<main className='relative' data-canvas>
+				<TransitionGroup className='h-screen'>
 					<CSSTransition timeout={200} classNames='fade' key={location.key}>
 						<Outlet />
 					</CSSTransition>
 				</TransitionGroup>
 			</main>
-			<footer className='mt-auto z-20 w-full'>
-				<Section section='footer'>
-					<Footer />
-				</Section>
+			<footer className='mt-auto z-10 w-full p-8 h-full flex flex-col items-center justify-center text-[var(--background-white)] bg-[var(--secondary-colour)]'>
+				<Footer />
 			</footer>
 		</div>
 	);
