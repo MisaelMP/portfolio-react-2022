@@ -33,12 +33,15 @@
 		"icon": "react"
 	},
 	{
-		"icon": "css3"
+		"icon": "tailwindcss"
 	},
 	{
 		"icon": "typescript"
 	},
 	{
 		"icon": "processing"
+	},
+	{
+		"icon": "vitejs"
 	}
 ]

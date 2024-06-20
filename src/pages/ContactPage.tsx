@@ -4,7 +4,7 @@ import styles from '../styles/layout.module.css';
 const ContactPage: React.FC = () => {
 	return (
 		<>
-			<div className={`${styles.container} !bg-[var(--background-brown)]`}>
+			<div className={`${styles.container}`}>
 				<ContactForm />
 			</div>
 		</>

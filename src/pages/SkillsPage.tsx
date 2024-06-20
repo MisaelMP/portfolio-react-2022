@@ -5,7 +5,7 @@ import styles from '../styles/layout.module.css';
 const SkillsPage: React.FC = () => {	
 		return (
 			<>
-				<div className={`${styles.container} !bg-[var(--background-orange)]`}>	
+				<div className={`${styles.container}`}>	
 					<Skillset />
 				</div>
 			</>

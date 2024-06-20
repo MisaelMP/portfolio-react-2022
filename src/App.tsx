@@ -16,13 +16,28 @@ function App(): JSX.Element {
 		}
 	}, [location]);
 
+	function getClassForPage(path: string) {
+		switch (path) {
+			case '/about':
+				return 'bg-[var(--background-blue-grey)]';
+			case '/skillset':
+				return 'bg-[var(--background-orange)]';
+			case '/projects':
+				return 'bg-[var(--background-wine)]';
+			case '/contact':
+				return 'bg-[var(--background-brown)]';
+			default:
+				return '';
+		}
+	}
+
 	return (
 		<div className='flex flex-col'>
 			<header className='z-20'>
 				<NavBar />
 			</header>
 			<main className='relative' data-canvas>
-				<TransitionGroup className='h-screen'>
+				<TransitionGroup className={`h-screen ${getClassForPage(location.pathname)}`}>
 					<CSSTransition timeout={200} classNames='fade' key={location.key}>
 						<Outlet />
 					</CSSTransition>

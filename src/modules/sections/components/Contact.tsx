@@ -53,7 +53,7 @@ const ContactForm: React.FC = () => {
 	};
 
 	return (
-		<div className='w-clamp text-center m-4 md:m-8'>
+		<div className='text-center m-4 md:m-8 w-clamp'>
 			<h2 className='font-montserrat text-3xl font-bold mb-8'>Get in touch:</h2>
 			<form className=' flex flex-col gap-2 lg:gap-4' id='contact-form' onSubmit={handleSubmit(onSubmit)} noValidate>
 				<div className='flex flex-col gap-1'>
