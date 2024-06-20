@@ -112,7 +112,7 @@ const ContactForm: React.FC = () => {
 					{errors.message && <span className='text-slate-200'>Please enter a message</span>}
 				</div>
 				<button
-					className='bg-[#16161d] hover:opacity-70 text-[var(--background-white)] font-bold py-4 px-4 rounded mx-auto w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yello mt-2 lg:mt-4'
+					className='bg-[var(--primary-colour)] hover:opacity-70 text-[var(--background-white)] font-bold py-4 px-4 rounded mx-auto w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yello mt-2 lg:mt-4'
 					type='submit'
 					disabled={disabled}
 				>
@@ -125,7 +125,7 @@ const ContactForm: React.FC = () => {
 					{alertInfo.message}
 					<button
 						type='button'
-						className='btn-close'
+						className='inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
 						data-bs-dismiss='alert'
 						aria-label='Close'
 						onClick={() => setAlertInfo({ display: false, message: '', type: '' })}
