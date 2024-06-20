@@ -3,7 +3,7 @@ import { type Container, type ISourceOptions, MoveDirection, OutMode } from '@ts
 import { loadSlim } from '@tsparticles/slim';
 import { useEffect, useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ReactComponent as Logo } from '../assets/icons/MisaelLogo1.svg';
+import { ReactComponent as LogoLanding } from '../assets/icons/MISAEL-MLogo.svg';
 
 const LandingPage: React.FC = () => {
 	const [init, setInit] = useState(false);
@@ -99,11 +99,11 @@ const LandingPage: React.FC = () => {
 					<Particles options={options} particlesLoaded={particlesLoaded} />
 					<a
 						href='/files/resume.pdf'
-						className='absolute w-1/3 h-1/3 hover:animate-bounce'
+						className='group flex justify-center items-center absolute w-[10rem] h-[5rem] hover:animate-bounce'
 						download
 						title='Download Resume'
 					>
-						<Logo className='w-full h-full' />
+						<LogoLanding className='w-full h-full group-hover:fill-[var(--background-white)] transition-colors duration-500 ease-in-out' />
 					</a>
 				</div>
 			</>

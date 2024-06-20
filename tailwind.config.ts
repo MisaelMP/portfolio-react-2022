@@ -19,6 +19,7 @@ module.exports = {
 			animation: {
 				bounce: 'bounce 1s infinite',
 			},
+			fill: ['group-hover'],
 		},
 	},
 	plugins: [require('@tailwindcss/forms')],
