@@ -1,19 +1,25 @@
-.fade-enter {
-  transform: rotateY(-90deg);
-  transform-origin: left;
+@keyframes moveFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
-.fade-enter-active {
-  transform: rotateY(0deg);
-  transition: transform 300ms;
+@keyframes moveToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.fade-enter {
+  animation: moveFromLeft 300ms ease both;
 }
 
 .fade-exit {
-  transform: rotateY(0deg);
-}
-
-.fade-exit-active {
-  transform: rotateY(90deg);
-  transform-origin: left;
-  transition: transform 300ms;
+  animation: moveToRight 300ms ease both;
 }

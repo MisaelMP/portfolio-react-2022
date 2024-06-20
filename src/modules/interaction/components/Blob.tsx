@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import p5 from 'p5';
 import { Point, Joint } from '../../../ts/interfaces/blob.interfaces';
 

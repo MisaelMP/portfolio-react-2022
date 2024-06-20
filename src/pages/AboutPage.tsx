@@ -1,15 +1,15 @@
 import React from 'react';
-import styles from '../styles/layout.module.css';
 import About from '../modules/sections/components/About';
 import Blob from '../modules/interaction/components/Blob';
+import Container from '../modules/common/components/Container';
 
 const AboutPage: React.FC = () => {
 	return (
 		<>
-			<div className={styles.container}>
+			<Container>
 				<About />
         <Blob />
-			</div>
+			</Container>
 		</>
 	);
 };
