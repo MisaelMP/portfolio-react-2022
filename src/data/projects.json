@@ -18,7 +18,7 @@
 		"href": "https://www.nrl.com/"
 	},
 	{
-    "title": "Asteroinds 1979",
+    "title": "Asteroids 1979",
     "description": "A web application that allows users to create and share drawings. The user can draw on the canvas and save their drawing to the database. The user can also view other users' drawings and like them. The user can also view their profile and see their drawings and liked drawings.",
 		"src": "/img/asteroids-1979.png",
 		"href": "https://asteroidsjavascript-imjarjjxzw.now.sh/"
