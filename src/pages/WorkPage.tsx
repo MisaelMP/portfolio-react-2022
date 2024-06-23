@@ -2,7 +2,7 @@ import React from 'react';
 import Projects from '../modules/sections/components/Projects';
 import Container from '../modules/common/components/Container';
 
-const ProjectsPage: React.FC = () => {
+const WorkPage: React.FC = () => {
 	return (
 		<>
 			<Container>
@@ -12,4 +12,4 @@ const ProjectsPage: React.FC = () => {
 	);
 };
 
-export default ProjectsPage;
+export default WorkPage;

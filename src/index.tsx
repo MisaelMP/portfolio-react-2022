@@ -7,7 +7,7 @@ import App from './App';
 import LandingPage from './pages/LandingPage';
 import AboutPage from './pages/AboutPage';
 import SkillsPage from './pages/SkillsPage';
-import ProjectsPage from './pages/ProjectsPage';
+import WorkPage from './pages/WorkPage';
 import ContactPage from './pages/ContactPage';
 
 const router = createBrowserRouter([
@@ -28,8 +28,8 @@ const router = createBrowserRouter([
 				element: <SkillsPage />,
 			},
 			{
-				path: '/Projects',
-				element: <ProjectsPage />,
+				path: '/Work',
+				element: <WorkPage />,
 			},
 			{
 				path: '/Contact',
