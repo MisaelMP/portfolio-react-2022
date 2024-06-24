@@ -7,7 +7,7 @@ export default function usePageClass(path: string) {
 				return 'bg-[var(--background-blue-grey)]';
 			case '/skillset':
 				return 'bg-[var(--background-orange)]';
-			case '/projects':
+			case '/work':
 				return 'bg-[var(--background-wine)]';
 			case '/contact':
 				return 'bg-[var(--background-brown)]';
