@@ -1,6 +1,6 @@
 # Getting Started
 
-Portfolio showcasing diverse interests in web development, including Three.js, React, animations, and various other projects. Ongoing work!
+Portfolio showcasing different interests in web development, Three.js, React, animations and General Projects. Ongoing work!
 
 ## Available Scripts
 
