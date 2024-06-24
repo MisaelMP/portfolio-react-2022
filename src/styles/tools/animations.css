@@ -1,0 +1,25 @@
+@keyframes moveFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.fade-enter {
+  animation: moveFromLeft 300ms ease both;
+}
+
+.fade-exit {
+  animation: moveToRight 300ms ease both;
+}

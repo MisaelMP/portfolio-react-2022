@@ -1,0 +1,18 @@
+:root {
+	--navbar-height: 6rem;
+
+  /* Colours */
+  --primary-colour: #16161d;
+  --secondary-colour:#f56565;
+  --background-white: #f8f8ff;
+  --background-orange-light: #E49A38;
+  --background-orange: #F97316;
+  --background-blue-grey: #94A3B8;
+  --background-brown: #78350F;
+  --background-wine: #881337;
+
+
+  /* Fonts */
+  --text-base: 16px;
+  --body-font: 'Hind', sans-serif;
+}
