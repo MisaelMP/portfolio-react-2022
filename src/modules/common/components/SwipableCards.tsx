@@ -26,7 +26,7 @@ const SwipableCards = () => {
 			{cards.map((card, index) => (
 				<SwiperSlide key={index}>
 					<a href={card.link} className='flex flex-col gap-4 mx-auto items-center justify-center w-clamp mb-8 px-5'>
-						<h1 className='font-montserrat text-3xl font-bold'>{card.title}</h1>
+						<h1 className='font-montserrat text-3xl font-bold text-center'>{card.title}</h1>
 						<p>{card.description}</p>
 						<img className='mt-16' src={card.img} alt={card.title} />
 					</a>
