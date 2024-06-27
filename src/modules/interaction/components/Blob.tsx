@@ -1,16 +1,26 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import p5 from 'p5';
 import { Point, Joint } from '../../../ts/interfaces/blob.interfaces';
 
 const Blob = () => {
 	const sketchRef = useRef(null);
+	const location = useLocation();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		let sketchInstance: p5;
+		let resizeTimeout: ReturnType<typeof setTimeout>;
 
 		const sketch = (p: p5) => {
 			let points: Point[];
 			let joints: Joint[];
+
+			const resizeCanvas = () => {
+				let parentElement = document.querySelector('main[data-canvas]') as HTMLElement;
+				if (parentElement && p) {
+					p.resizeCanvas(parentElement.offsetWidth, parentElement.offsetHeight);
+				}
+			};
 
 			p.setup = () => {
 				let parentElement = document.querySelector('main[data-canvas]') as HTMLElement;
@@ -212,13 +222,11 @@ const Blob = () => {
 						},
 					});
 				}
+				resizeCanvas();
 			};
 
 			p.windowResized = () => {
-			 let parentElement = document.querySelector('main[data-canvas]') as HTMLElement;
-				if (parentElement) {
-					p.resizeCanvas(parentElement.offsetWidth, parentElement.offsetHeight);
-				}
+				resizeCanvas();
 			};
 
 			p.draw = () => {
@@ -265,12 +273,22 @@ const Blob = () => {
 			sketchInstance = new p5(sketch, sketchRef.current);
 		}
 
+		resizeTimeout = setTimeout(() => {
+			let parentElement = document.querySelector('main[data-canvas]') as HTMLElement;
+			if (parentElement) {
+				sketchInstance.resizeCanvas(parentElement.offsetWidth, parentElement.offsetHeight);
+			}
+		}, 300);
+
 		return () => {
 			if (sketchInstance) {
 				sketchInstance.remove();
 			}
+			if (resizeTimeout) {
+				clearTimeout(resizeTimeout);
+			}
 		};
-	}, []);
+	}, [location]);
 
 	return <div ref={sketchRef}></div>;
 };
