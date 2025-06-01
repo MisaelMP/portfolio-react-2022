@@ -61,7 +61,7 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 
 		renderer.setClearColor(0x202533, 1);
 		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(initialW, initialH);
+		renderer.setSize(initialW, initialH, false);
 		rendererRef.current = renderer;
 
 		// Create Cannon‐ES World
@@ -81,12 +81,10 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 			const newW = window.innerWidth; // use window.innerWidth again
 			const newH = window.innerHeight;
 			renderer.setSize(newW, newH);
-
 			const newAspect = newW / newH;
 			camera.left = -distance * newAspect;
 			camera.right = distance * newAspect;
 			camera.updateProjectionMatrix();
-
 			const isMobileNow = newW <= 767;
 			const scaleNow = isMobileNow ? 0.7 : 1;
 			scene.scale.set(scaleNow, scaleNow, scaleNow);
