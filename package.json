@@ -13,7 +13,7 @@
 		"@tsparticles/react": "^3.0.0",
 		"@tsparticles/slim": "^3.4.0",
 		"@types/jest": "^27.5.2",
-		"cannon": "^0.6.2",
+		"cannon-es": "^0.20.0",
 		"p5": "^1.9.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",

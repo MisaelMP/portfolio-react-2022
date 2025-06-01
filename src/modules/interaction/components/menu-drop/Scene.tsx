@@ -1,88 +1,120 @@
-import { forwardRef, useEffect } from 'react';
-import { Canvas, useThree } from '@react-three/fiber';
-import { Physics } from '@react-three/cannon';
-import { MenuDrop } from './MenuDrop';
+import React, { useRef, useLayoutEffect } from 'react';
 import * as THREE from 'three';
+import * as CANNON from 'cannon-es';
+import MenuDrop from './MenuDrop';
 
-const distance = 15;
-const yOffset = -10;
+export type MenuItem = {
+	label: string;
+	href: string;
+};
 
-interface SceneProps {
-	items: { label: string; href: string }[];
-}
+type SceneProps = {
+	menuItems: MenuItem[];
+};
 
-// Camera controller component to handle resize and camera updates
-function CameraController() {
-	const { camera, size, scene } = useThree();
+const Scene: React.FC<SceneProps> = ({ menuItems }) => {
+	const containerRef = useRef<HTMLDivElement>(null);
+	const canvasRef = useRef<HTMLCanvasElement>(null);
+	const frameIdRef = useRef<number>();
+	const menuDropRef = useRef<MenuDrop | null>(null);
+	const sceneRef = useRef<THREE.Scene>();
+	const cameraRef = useRef<THREE.OrthographicCamera>();
+	const rendererRef = useRef<THREE.WebGLRenderer>();
+	const worldRef = useRef<CANNON.World>();
 
-	useEffect(() => {
-		const handleResize = () => {
-			const aspect = size.width / size.height;
-			if (camera instanceof THREE.OrthographicCamera) {
-				camera.top = distance + yOffset;
-				camera.right = distance * aspect;
-				camera.bottom = -distance + yOffset;
-				camera.left = -distance * aspect;
-				camera.updateProjectionMatrix();
-			}
+	useLayoutEffect(() => {
+		if (!containerRef.current || !canvasRef.current) return;
 
-			const isMobile = window.innerWidth < 768;
-			const scale = isMobile ? 0.7 : 1;
-			scene.scale.set(scale, scale, scale);
+		// Get container size (should match viewport)
+		const container = containerRef.current;
+		const containerW = container.clientWidth;
+		const containerH = container.clientHeight;
+
+		// Create Three.js Scene + OrthographicCamera
+		const scene = new THREE.Scene();
+		scene.fog = new THREE.Fog(0x202533, -10, 100);
+		sceneRef.current = scene;
+
+		const distance = 15;
+		const aspect = containerW / containerH;
+		const camera = new THREE.OrthographicCamera(-distance * aspect, distance * aspect, distance, -distance, -10, 100);
+		camera.position.set(-10, 10, 10);
+		camera.lookAt(new THREE.Vector3(0, 0, 0));
+		cameraRef.current = camera;
+
+		// Add Lights
+		const ambient = new THREE.AmbientLight(0xcccccc);
+		scene.add(ambient);
+		const foreLight = new THREE.DirectionalLight(0xffffff, 0.5);
+		foreLight.position.set(5, 5, 20);
+		scene.add(foreLight);
+		const backLight = new THREE.DirectionalLight(0xffffff, 1);
+		backLight.position.set(-5, -5, -10);
+		scene.add(backLight);
+
+		// Create Renderer
+		const renderer = new THREE.WebGLRenderer({
+			antialias: true,
+			canvas: canvasRef.current,
+		});
+		renderer.setClearColor(0x202533);
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize(containerW, containerH);
+		rendererRef.current = renderer;
+
+		// Create Cannon‐ES World
+		const world = new CANNON.World();
+		world.gravity.set(0, -50, 0);
+		worldRef.current = world;
+
+		// Instantiate MenuDrop
+		menuDropRef.current = new MenuDrop(menuItems, scene, world, camera);
+
+		// onResize for responsiveness
+		const onResize = () => {
+			const newW = container.clientWidth;
+			const newH = container.clientHeight;
+			renderer.setSize(newW, newH);
+
+			const newAspect = newW / newH;
+			camera.left = -distance * newAspect;
+			camera.right = distance * newAspect;
+			camera.updateProjectionMatrix();
+
+			const isMobileNow = window.innerWidth <= 767;
+			const scaleNow = isMobileNow ? 0.7 : 1;
+			scene.scale.set(scaleNow, scaleNow, scaleNow);
 		};
 
-		window.addEventListener('resize', handleResize);
-		handleResize();
-		return () => window.removeEventListener('resize', handleResize);
-	}, [camera, size, scene]);
+		window.addEventListener('resize', onResize);
 
-	return null;
-}
+		// Call onResize initially to set up responsiveness
+		onResize();
 
-export const Scene = forwardRef<{ reset: () => void }, SceneProps>(({ items }, ref) => {
+		// Animation loop
+		const animate = () => {
+			world.step(1 / 60);
+			menuDropRef.current?.update();
+			renderer.render(scene, camera);
+			frameIdRef.current = requestAnimationFrame(animate);
+		};
+		animate();
+
+		// Cleanup
+		return () => {
+			window.removeEventListener('resize', onResize);
+			if (frameIdRef.current) cancelAnimationFrame(frameIdRef.current);
+			renderer.dispose();
+			scene.clear();
+			world.bodies.forEach((b) => world.removeBody(b));
+		};
+	}, [menuItems]);
+
 	return (
-		<Canvas
-			orthographic
-			camera={{
-				position: [-10, 10, 10],
-				zoom: 1,
-				left: -distance,
-				right: distance,
-				top: distance + yOffset,
-				bottom: -distance + yOffset,
-				near: -1,
-				far: 100,
-			}}
-			gl={{
-				antialias: true,
-				alpha: true,
-				pixelRatio: window.devicePixelRatio,
-			}}
-		>
-			<CameraController />
-
-			<color attach='background' args={[0x202533]} />
-			<fog attach='fog' args={[0x202533, -1, 100]} />
-
-			<group position={[0, yOffset, 0]}>
-				<ambientLight color={0xcccccc} />
-				<directionalLight position={[5, 5, 20]} intensity={0.5} color={0xffffff} />
-				<directionalLight position={[-5, -5, -10]} intensity={1} color={0xffffff} />
-
-				<Physics
-					gravity={[0, -35, 0]}
-					defaultContactMaterial={{
-						friction: 5,
-						restitution: 0.15,
-						contactEquationRelaxation: 3,
-						contactEquationStiffness: 1e8,
-					}}
-					broadphase='SAP'
-					iterations={10}
-				>
-					<MenuDrop ref={ref} items={items} position={[6, 0, 0]} />
-				</Physics>
-			</group>
-		</Canvas>
+		<div ref={containerRef} className='fixed inset-0 overflow-hidden'>
+			<canvas ref={canvasRef} className='w-full h-full block' />
+		</div>
 	);
-});
+};
+
+export default Scene;
