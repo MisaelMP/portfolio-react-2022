@@ -25,10 +25,9 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 	useLayoutEffect(() => {
 		if (!containerRef.current || !canvasRef.current) return;
 
-		// Get container size (should match viewport)
-		const container = containerRef.current;
-		const containerW = container.clientWidth;
-		const containerH = container.clientHeight;
+		// Immediately read window dimensions (guaranteed correct on hard reload):
+		const initialW = window.innerWidth;
+		const initialH = window.innerHeight;
 
 		// Create Three.js Scene + OrthographicCamera
 		const scene = new THREE.Scene();
@@ -36,7 +35,7 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 		sceneRef.current = scene;
 
 		const distance = 15;
-		const aspect = containerW / containerH;
+		const aspect = initialW / initialH;
 		const camera = new THREE.OrthographicCamera(-distance * aspect, distance * aspect, distance, -distance, -10, 100);
 		camera.position.set(-10, 10, 10);
 		camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -52,14 +51,17 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 		backLight.position.set(-5, -5, -10);
 		scene.add(backLight);
 
-		// Create Renderer
+		// Create Renderer (with transparent background)
 		const renderer = new THREE.WebGLRenderer({
 			antialias: true,
 			canvas: canvasRef.current,
+			alpha: true, // allow transparency
+			preserveDrawingBuffer: false,
 		});
-		renderer.setClearColor(0x202533);
+
+		renderer.setClearColor(0x202533, 1);
 		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(containerW, containerH);
+		renderer.setSize(initialW, initialH);
 		rendererRef.current = renderer;
 
 		// Create Cannon‐ES World
@@ -70,10 +72,14 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 		// Instantiate MenuDrop
 		menuDropRef.current = new MenuDrop(menuItems, scene, world, camera);
 
-		// onResize for responsiveness
+		const isMobileOnLoad = initialW <= 767;
+		const initialScale = isMobileOnLoad ? 0.7 : 1;
+		scene.scale.set(initialScale, initialScale, initialScale);
+
+		// onResize handler (for subsequent resizes):
 		const onResize = () => {
-			const newW = container.clientWidth;
-			const newH = container.clientHeight;
+			const newW = window.innerWidth; // use window.innerWidth again
+			const newH = window.innerHeight;
 			renderer.setSize(newW, newH);
 
 			const newAspect = newW / newH;
@@ -81,17 +87,13 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 			camera.right = distance * newAspect;
 			camera.updateProjectionMatrix();
 
-			const isMobileNow = window.innerWidth <= 767;
+			const isMobileNow = newW <= 767;
 			const scaleNow = isMobileNow ? 0.7 : 1;
 			scene.scale.set(scaleNow, scaleNow, scaleNow);
 		};
-
 		window.addEventListener('resize', onResize);
 
-		// Call onResize initially to set up responsiveness
-		onResize();
-
-		// Animation loop
+		// Start animation loop:
 		const animate = () => {
 			world.step(1 / 60);
 			menuDropRef.current?.update();
@@ -100,7 +102,7 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 		};
 		animate();
 
-		// Cleanup
+		// Cleanup on unmount
 		return () => {
 			window.removeEventListener('resize', onResize);
 			if (frameIdRef.current) cancelAnimationFrame(frameIdRef.current);
