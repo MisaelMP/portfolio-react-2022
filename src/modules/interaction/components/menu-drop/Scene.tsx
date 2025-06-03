@@ -84,7 +84,6 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 
 		renderer.setClearColor(0x202533, 1);
 		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(initialW, initialH);
 		rendererRef.current = renderer;
 
 		// Ensure renderer size is applied correctly on refresh
