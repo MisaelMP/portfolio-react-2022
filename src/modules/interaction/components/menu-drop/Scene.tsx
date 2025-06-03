@@ -2,6 +2,7 @@ import React, { useRef, useLayoutEffect } from 'react';
 import * as THREE from 'three';
 import * as CANNON from 'cannon-es';
 import MenuDrop from './MenuDrop';
+import { debounce } from 'lodash';
 
 export type MenuItem = {
 	label: string;
@@ -21,6 +22,28 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 	const cameraRef = useRef<THREE.OrthographicCamera>();
 	const rendererRef = useRef<THREE.WebGLRenderer>();
 	const worldRef = useRef<CANNON.World>();
+
+	// Utility function for resizing and mobile detection
+	const handleResize = (
+		renderer: THREE.WebGLRenderer,
+		camera: THREE.OrthographicCamera,
+		scene: THREE.Scene,
+		distance: number
+	) => {
+		const newW = window.innerWidth;
+		const newH = window.innerHeight;
+		const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
+		renderer.setSize(newW, newH, false);
+
+		const newAspect = newW / newH;
+		camera.left = -distance * newAspect;
+		camera.right = distance * newAspect;
+		camera.updateProjectionMatrix();
+
+		const scale = isMobile ? 0.7 : 1;
+		scene.scale.set(scale, scale, scale);
+	};
 
 	useLayoutEffect(() => {
 		if (!containerRef.current || !canvasRef.current) return;
@@ -61,8 +84,12 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 
 		renderer.setClearColor(0x202533, 1);
 		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(initialW, initialH, false);
+		renderer.setSize(initialW, initialH);
 		rendererRef.current = renderer;
+
+		// Ensure renderer size is applied correctly on refresh
+		renderer.setSize(initialW, initialH, false);
+		handleResize(renderer, camera, scene, distance); // Apply initial resize after setting renderer size
 
 		// Create Cannon‐ES World
 		const world = new CANNON.World();
@@ -72,24 +99,10 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 		// Instantiate MenuDrop
 		menuDropRef.current = new MenuDrop(menuItems, scene, world, camera);
 
-		const isMobileOnLoad = initialW <= 767;
-		const initialScale = isMobileOnLoad ? 0.7 : 1;
-		scene.scale.set(initialScale, initialScale, initialScale);
-
 		// onResize handler (for subsequent resizes):
-		const onResize = () => {
-			const newW = window.innerWidth; // use window.innerWidth again
-			const newH = window.innerHeight;
-			renderer.setSize(newW, newH);
-			const newAspect = newW / newH;
-			camera.left = -distance * newAspect;
-			camera.right = distance * newAspect;
-			camera.updateProjectionMatrix();
-			const isMobileNow = newW <= 767;
-			const scaleNow = isMobileNow ? 0.7 : 1;
-			scene.scale.set(scaleNow, scaleNow, scaleNow);
-		};
-		window.addEventListener('resize', onResize);
+		const onResize = () => handleResize(renderer, camera, scene, distance);
+		const debouncedResize = debounce(onResize, 100); // Debounce resize events
+		window.addEventListener('resize', debouncedResize);
 
 		// Start animation loop:
 		const animate = () => {
@@ -102,7 +115,7 @@ const Scene: React.FC<SceneProps> = ({ menuItems }) => {
 
 		// Cleanup on unmount
 		return () => {
-			window.removeEventListener('resize', onResize);
+			window.removeEventListener('resize', debouncedResize);
 			if (frameIdRef.current) cancelAnimationFrame(frameIdRef.current);
 			renderer.dispose();
 			scene.clear();
