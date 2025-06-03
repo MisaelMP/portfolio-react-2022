@@ -37,9 +37,9 @@
 	},
 	{
 		"title": "Soundscape",
-		"description": "An excercies using websockets, p5.js, ruby, node and js.",
+		"description": "Soundscape is a web application that allows users to explore and interact with 3D and creative programming concepts through sound. It features a visually appealing interface that showcases various soundscapes, enabling users to experience the intersection of sound and 3D graphics. The application is built using Vue.js, Three.js and Websockets, providing a dynamic and immersive user experience.",
 		"src": "/img/soundscape.png",
-		"href": "https://misaelmp.github.io/Drawing_and_sound_app/"
+		"href": "https://soundscape-three-one.vercel.app/"
 	},
 	{
 		"title": "Park Victoria",
