@@ -5,7 +5,6 @@ import { FontLoader, TextGeometryParameters, Font, TextGeometry } from 'three-st
 /** A color‐range type for gradient interpolation. */
 type ColorRange = { from: THREE.Color; to: THREE.Color };
 
-/** Eight example gradients, matching your original. */
 const COLORS: ColorRange[] = [
 	{ from: new THREE.Color('#ff699f'), to: new THREE.Color('#a769ff') },
 	{ from: new THREE.Color('#683fee'), to: new THREE.Color('#527ee1') },
@@ -46,7 +45,7 @@ interface WordGroup extends THREE.Group {
 }
 
 /**
- * MenuDrop no longer queries the DOM. Instead, you pass in an array of
+ * MenuDrop no longer queries the DOM. Instead, we pass in an array of
  * { label, href } items. We render each label as a 3D word stack.
  */
 export default class MenuDrop {
