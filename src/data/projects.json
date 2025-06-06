@@ -46,5 +46,11 @@
 		"description": "As part of CodeHouse group, I was responsible for the front-end development of the Parks Victoria website. I worked closely with the design team to ensure that the site’s functionality was optimized for the Sitecore content management system. The site was designed to be user-friendly and engaging, with a focus on providing users with relevant information about Victoria’s parks and reserves",
 		"src": "/img/parks-victoria.png",
 		"href": "https://www.parks.vic.gov.au/"
+	},
+	{
+		"title": "Piet Mondrian Art Generator",
+		"description": "A creative coding project that generates abstract art inspired by Piet Mondrian's style. The application uses P5.js to create dynamic compositions of rectangles in primary colors, black, and white. Users can interact with the canvas to generate unique pieces of art, showcasing the beauty of algorithmic design and color theory.",
+		"src": "/img/piet-mondrian.png",
+		"href": "https://mondrian-art-generator.vercel.app/"
 	}
 ]
