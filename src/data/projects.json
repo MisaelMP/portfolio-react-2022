@@ -49,8 +49,8 @@
 	},
 	{
 		"title": "Piet Mondrian Art Generator",
-		"description": "A creative coding project that generates abstract art inspired by Piet Mondrian's style. The application uses P5.js to create dynamic compositions of rectangles in primary colors, black, and white. Users can interact with the canvas to generate unique pieces of art, showcasing the beauty of algorithmic design and color theory.",
-		"src": "/img/piet-mondrian.png",
-		"href": "https://mondrian-art-generator.vercel.app/"
+		"description": "A creative coding project that generates abstract compositions using real-time facial recognition data and expression analysis inspired by Piet Mondrian's style. The application uses face-api.js, P5.js and Lit to create dynamic compositions of rectangles in primary colors, black, and white. Users can interact with the canvas to generate unique pieces of art, showcasing the beauty of algorithmic design and color theory.",
+		"src": "/img/mondrian-art-generator.png",
+		"href": "https://mondrian-face-recognition-art-gener.vercel.app/"
 	}
 ]

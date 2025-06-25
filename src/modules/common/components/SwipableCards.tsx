@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import projects from '../../../data/projects.json'; 
+import projects from '../../../data/projects.json';
 import { CardData } from '../../../ts/interfaces/card.interfaces';
 
 const cards: CardData[] = projects.map((project) => ({
