@@ -18,6 +18,12 @@
 		"href": "https://www.nrl.com/"
 	},
 	{
+		"title": "Entain (Ladbrokes)",
+		"description": "During my time at Entain, I contributed to the enhancement of the core Front-End Development team by collaborating closely with senior developers and tech leads to drive innovation and improve workflows. My role involved implementing Playwright E2E testing for robust automation, releasing new features across four key brands—Neds, Ladbrokes, Betcha, and Tab NZ—and supporting the deployment of a new hardware interface for NZ betting terminals. This position allowed me to foster collaboration through continuous interaction and knowledge-sharing with the wider team.",
+		"src": "/img/ladbrokes.png",
+		"href": "https://www.entaingroup.com/"
+	},
+	{
 		"title": "Asteroids 1979",
 		"description": "Asteroids 1979 is a classic arcade shooter built in vanilla JavaScript and HTML5 Canvas—no libraries required. A lean game loop powered by requestAnimationFrame drives smooth 60 FPS rendering, while custom vector-math handles ship thrust, rotation, and asteroid collision detection. Players steer with arrow keys and fire with the spacebar against rising waves of rocks, and the game world scales in difficulty as you rack up points. Underneath the retro pixel-art and chiptune blips lives a creative-writing experiment: Responsive input handling and touch support ensure the game feels at home on desktop or mobile, making Asteroids 1979 both a technical showcase of pure JavaScript game architecture and an unexpected canvas for storytelling.",
 		"src": "/img/asteroids-1979.png",
