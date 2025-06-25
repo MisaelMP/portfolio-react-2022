@@ -25,7 +25,7 @@
 	},
 	{
 		"title": "Recursive App",
-		"description": "is a Vue 3 + TresJS demo that brings a conceptual smartphone to life in a swirling particle vortex. Under the hood it uses raw WebGL via custom GLSL vertex & fragment shaders to animate thousands of particles around a PBR-textured phone model. Interactive drag-to-rotate and scroll-to-zoom controls make the scene feel tactile, and responsive layout breaks seamlessly between desktop and mobile, with performance optimizations (InstancedMesh, adaptive frame-rate) to keep it running smoothly on any device.",
+		"description": "A Vue 3 + TresJS demo that brings a conceptual smartphone to life in a swirling particle vortex. Under the hood it uses raw WebGL via custom GLSL vertex & fragment shaders to animate thousands of particles around a PBR-textured phone model. Interactive drag-to-rotate and scroll-to-zoom controls make the scene feel tactile, and responsive layout breaks seamlessly between desktop and mobile, with performance optimizations (InstancedMesh, adaptive frame-rate) to keep it running smoothly on any device.",
 		"src": "/img/recursive-app.png",
 		"href": "https://vue-3d-nebula-app.vercel.app/"
 	},
